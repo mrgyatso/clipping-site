@@ -1,98 +1,140 @@
-export type CampaignTile = {
+export type LeadClassification = "qualified" | "manual_review";
+
+export type CampaignGoal =
+  | "awareness"
+  | "launch"
+  | "audience_growth"
+  | "content_repurposing"
+  | "other";
+
+export type BudgetRange =
+  | "under_1000"
+  | "1000_2499"
+  | "2500_4999"
+  | "5000_plus";
+
+export type SourceReadiness = "ready" | "needs_preparation" | "not_ready";
+export type LaunchWindow = "within_30_days" | "one_to_three_months" | "later";
+
+export type LeadAttribution = {
+  source?: string;
+  medium?: string;
+  campaign?: string;
+  term?: string;
+  content?: string;
+  landingPage?: string;
+  referrer?: string;
+};
+
+export type LeadSubmission = {
   name: string;
-  views: string;
-  color: string;
-  icon: "ticket" | "mic" | "console" | "play" | "chip" | "bag";
+  email: string;
+  company: string;
+  sourceContentUrl: string;
+  campaignGoal: CampaignGoal;
+  budgetRange: BudgetRange;
+  sourceReadiness: SourceReadiness;
+  launchWindow: LaunchWindow;
+  notes?: string;
+  classification: LeadClassification;
+  attribution: LeadAttribution;
+  submittedAt: string;
+};
+
+export type CampaignCaseStudy = {
+  slug: string;
+  title: string;
+  campaignGoal: string;
+  vertical: string;
+  durationDays: number;
+  approvedClips: number;
+  verifiedViews: number;
+  platforms: string[];
+  budgetBand: string;
+  measurementMethodology: string;
+  summary: string;
 };
 
 export const siteConfig = {
   name: "ClipWave",
-  calLink: "zack-woods-si9bra/30min",
-  bookingDuration: "30 min",
+  description:
+    "Managed short-form clipping campaigns for brands with source content ready to distribute.",
+  bookingDuration: "30 minutes",
+  calLink: process.env.NEXT_PUBLIC_CAL_LINK ?? "zack-woods-si9bra/30min",
 } as const;
 
 export const navigation = [
-  { label: "About", href: "#top", dropdown: false },
-  { label: "Work With Us", href: "#work-with", dropdown: true },
-  { label: "Case Studies", href: "#reviews", dropdown: true },
-  { label: "Compare", href: "#compare", dropdown: true },
-  { label: "Resources", href: "#blog", dropdown: true },
-  { label: "Contact", href: "#faq", dropdown: true },
+  { label: "Pilot", href: "/#pilot" },
+  { label: "Process", href: "/#process" },
+  { label: "Case studies", href: "/case-studies" },
+  { label: "For clippers", href: "/for-clippers" },
 ] as const;
 
-export const campaignTiles: CampaignTile[] = [
-  { name: "Indie Artist", views: "12M+ views", color: "mq-red", icon: "ticket" },
-  { name: "Pop Star", views: "2B+ views", color: "mq-slate", icon: "mic" },
-  { name: "Sports League", views: "8M+ views", color: "mq-blue", icon: "console" },
-  { name: "AI Startup", views: "59M+ views", color: "mq-red", icon: "console" },
-  { name: "Reality Star", views: "17M+ views", color: "mq-purple", icon: "play" },
-  { name: "Public Figure", views: "6M+ views", color: "mq-slate", icon: "play" },
-  { name: "Gaming Brand", views: "53M+ views", color: "mq-green", icon: "chip" },
-  { name: "DTC Product", views: "3M+ views", color: "mq-sand", icon: "bag" },
-  { name: "Podcast", views: "4M+ views", color: "mq-green", icon: "bag" },
-];
+// Add only verified, anonymized campaign records. The public pages intentionally
+// show process proof until real campaign datasets are supplied.
+export const caseStudies: CampaignCaseStudy[] = [];
 
-export const reviews = [
-  { quote: "Payouts landed on time, every time. Easily the most organized program I have clipped for.", name: "Marcus" },
-  { quote: "The briefs are actually clear. You know exactly what counts before you post.", name: "Big T" },
-  { quote: "They are the best for clipping ✨", name: "Sumit" },
-  { quote: "the BEST community", name: "Zziiroo" },
-  { quote: "this is the best clipping program of all time", name: "Ellijah" },
-  { quote: "It is the best community ❤️", name: "John" },
-  { quote: "they are the best! and the mods are super approachable and helpful with any questions", name: "Kimmy" },
-  { quote: "A campaign that genuinely pays for effort. My best month yet came from one brief.", name: "Dana" },
-  { quote: "Great place to sharpen your editing, learn what performs, and get paid doing it.", name: "Ravi" },
-] as const;
-
-export const guideTabs = [
+export const processProof = [
   {
-    label: "Campaign model",
-    eyebrow: "▦ How our clipping campaigns work",
-    content:
-      "A clipping agency should do more than cut clips — the real job is distribution. We turn your source content, from long-form footage and podcasts to interviews and live moments, into a campaign brief with clear guidelines. Our clipper network then creates and posts vertical edits from their own accounts across TikTok, Reels, and Shorts.",
+    title: "A written campaign brief",
+    body: "Goals, source boundaries, editing direction, posting requirements, and approval criteria are documented before work begins.",
   },
   {
-    label: "Why volume wins",
-    eyebrow: "▦ Why volume wins",
-    content:
-      "One great clip can pop; hundreds of good clips posted consistently will compound. Volume gives the algorithm more chances to find your audience, and it keeps your brand present across every feed that matters, every single day.",
+    title: "Review before approval",
+    body: "A clip counts toward the pilot only after it meets the agreed brief and its posted URL is recorded.",
   },
   {
-    label: "Quality and reporting",
-    eyebrow: "▦ Quality and reporting",
-    content:
-      "Every submission is manually reviewed against your campaign guidelines before it counts. Views are verified, filtered, and rolled into one live report — so the number you see is the number you actually got.",
+    title: "A delivery record",
+    body: "You receive a campaign-level record of approved clips, post links, platforms, dates, and available view data.",
   },
 ] as const;
 
 export const faqs = [
   {
-    question: "What is ClipWave?",
+    question: "What is included in the pilot?",
     answer:
-      "A managed clipping agency. We turn your source content into short-form distribution at scale through a vetted network of clippers, with strategy, quality review, and verified reporting handled for you.",
+      "Campaign setup, a written brief, clipper coordination, review, and 20 approved clips posted over 21 days. You also receive a delivery record with post links and available platform metrics.",
   },
   {
-    question: "What does a clipping agency do?",
+    question: "Do you guarantee views?",
     answer:
-      "We build your campaign strategy and content guidelines, our clipper network creates and posts edits from their own accounts across TikTok, Reels, and Shorts, every submission is reviewed against the brief, and you track posted videos and views in one report.",
+      "No. Performance depends on the source content, audience, platform, timing, and creative response. We guarantee only the operational deliverables defined in the final scope.",
   },
   {
-    question: "How does the process work?",
+    question: "Why does the pilot start at $1,000?",
     answer:
-      "Book a call, share your goals and source content, and we map the plan. We brief the network, review every submission, and report verified performance while the campaign scales.",
+      "Source length, editing complexity, rights, brand constraints, and posting requirements affect the work involved. We review your source content before confirming final scope and price.",
   },
   {
-    question: "How quickly can I launch a campaign?",
-    answer: "Most campaigns are live within 1–2 days of the intro call, assuming source content is ready.",
+    question: "What source content works best?",
+    answer:
+      "Podcasts, interviews, streams, webinars, product demos, and other footage with clear moments and enough usable material for multiple vertical edits.",
   },
   {
-    question: "Who do you work with?",
+    question: "What if I am not ready to launch within 30 days?",
     answer:
-      "Creators, artists, startups, large brands, podcasts, gaming teams, and businesses planning managed short-form distribution. Best fit is teams with a $15k+ launch budget.",
+      "Your submission goes to manual review. We will assess fit and respond by email rather than opening the scheduling calendar immediately.",
   },
   {
-    question: "What does it cost to start?",
+    question: "Can I apply as a clipper?",
     answer:
-      "Managed campaigns currently fit $15k+ budgets best. Larger brand scopes and agency partnerships are priced separately — if you're not sure the investment fits your stage, email us first and we'll point you in the right direction.",
+      "Yes. The creator opportunity, expectations, FAQs, and interest form are on the separate For Clippers page.",
+  },
+] as const;
+
+export const clipperTestimonials = [
+  {
+    quote:
+      "Payouts landed on time, every time. Easily the most organized program I have clipped for.",
+    name: "Marcus",
+  },
+  {
+    quote: "The briefs are clear. You know what counts before you post.",
+    name: "Big T",
+  },
+  {
+    quote:
+      "The moderators are approachable and helpful whenever a brief needs clarification.",
+    name: "Kimmy",
   },
 ] as const;
