@@ -68,13 +68,14 @@ export const siteConfig = {
     "Guaranteed-view distribution campaigns for YouTubers and live sellers with content ready to move.",
   bookingDuration: "30 minutes",
   calLink: process.env.NEXT_PUBLIC_CAL_LINK ?? "zack-woods-si9bra/30min",
+  whopUrl: process.env.NEXT_PUBLIC_WHOP_URL ?? "#",
+  discordUrl: process.env.NEXT_PUBLIC_DISCORD_URL ?? "#",
 } as const;
 
 export const navigation = [
   { label: "Pilot", href: "/#pilot" },
   { label: "Process", href: "/#process" },
   { label: "Case studies", href: "/case-studies" },
-  { label: "For clippers", href: "/for-clippers" },
 ] as const;
 
 // Add only verified, anonymized campaign records. The public pages intentionally
@@ -130,23 +131,6 @@ export const faqs = [
   {
     question: "Can I apply as a clipper?",
     answer:
-      "Yes. The creator opportunity, expectations, FAQs, and interest form are on the separate For Clippers page.",
-  },
-] as const;
-
-export const clipperTestimonials = [
-  {
-    quote:
-      "Payouts landed on time, every time. Easily the most organized program I have clipped for.",
-    name: "Marcus",
-  },
-  {
-    quote: "The briefs are clear. You know what counts before you post.",
-    name: "Big T",
-  },
-  {
-    quote:
-      "The moderators are approachable and helpful whenever a brief needs clarification.",
-    name: "Kimmy",
+      "Yes. Visit the separate For Clippers page to join the ClipWave community through Whop or Discord.",
   },
 ] as const;

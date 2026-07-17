@@ -1,68 +1,85 @@
 import type { Metadata } from "next";
-import { ClipperInterestForm } from "@/components/interactive";
-import { Footer, Header, PageIntro } from "@/components/site-shell";
-import { clipperTestimonials } from "@/data/site";
+import { Footer, Header } from "@/components/site-shell";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "For Clippers",
   description:
-    "ClipWave creator expectations, working model, FAQs, and interest registration.",
+    "Join the ClipWave clipper community on Whop and Discord for campaign opportunities, briefs, and updates.",
   alternates: { canonical: "/for-clippers" },
 };
 
+function WhopMark() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 48 48">
+      <path d="M8 13h8l8 13 8-13h8L24 39 8 13Z" />
+      <path d="M16 9h16l-8 13-8-13Z" />
+    </svg>
+  );
+}
+
+function DiscordMark() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 48 48">
+      <path d="M35.7 12.5a28 28 0 0 0-7-2.2l-.9 1.9a25 25 0 0 0-7.6 0l-1-1.9a28 28 0 0 0-7 2.2C7.8 19 6.7 25.3 7.3 31.4a29 29 0 0 0 8.6 4.3l2.1-2.9a18 18 0 0 1-3.3-1.6l.8-.6a20 20 0 0 0 17 0l.8.6a18 18 0 0 1-3.3 1.6l2.1 2.9a29 29 0 0 0 8.6-4.3c.7-7.1-1.2-13.3-5-18.9ZM18.5 28.7c-2 0-3.6-1.9-3.6-4.2s1.6-4.2 3.6-4.2 3.7 1.9 3.6 4.2c0 2.3-1.6 4.2-3.6 4.2Zm11 0c-2 0-3.6-1.9-3.6-4.2s1.6-4.2 3.6-4.2 3.7 1.9 3.6 4.2c0 2.3-1.6 4.2-3.6 4.2Z" />
+    </svg>
+  );
+}
+
+const isPlaceholder = (url: string) => url === "#";
+
 export default function ForClippersPage() {
+  const linksArePlaceholders =
+    isPlaceholder(siteConfig.whopUrl) || isPlaceholder(siteConfig.discordUrl);
+
   return (
     <>
       <Header />
-      <main>
-        <PageIntro
-          eyebrow="Creator path"
-          title="Clear briefs, defined approvals, and campaign-specific work."
-          description="The clipper path is separate from the buyer funnel. Opportunities depend on active client campaigns, content fit, platform requirements, and review capacity."
-        />
-        <section className="content-page">
-          <h2>What to expect</h2>
-          <ul>
-            <li>Each campaign has its own source content and written brief.</li>
-            <li>Approval depends on meeting the brief, not effort alone.</li>
-            <li>Posting, disclosure, and platform rules must be followed.</li>
-            <li>Payment terms are disclosed before you accept campaign work.</li>
-            <li>There is no promise of continuous assignments or income.</li>
-          </ul>
+      <main className="clipper-landing">
+        <section className="clipper-community">
+          <span className="kicker light">For clippers</span>
+          <h1>Turn great moments into reach.</h1>
+          <p>
+            Join the ClipWave clipper community to find campaign opportunities,
+            follow active briefs, connect with other creators, and stay close to
+            new work as it opens.
+          </p>
 
-          <h2>What current clippers value</h2>
-          <div className="testimonial-grid">
-            {clipperTestimonials.map((testimonial) => (
-              <article className="testimonial-card" key={testimonial.name}>
-                <p>“{testimonial.quote}”</p>
-                <h2>{testimonial.name}</h2>
-              </article>
-            ))}
+          <div className="community-links" id="community-links">
+            <a
+              className="community-link whop-link"
+              href={siteConfig.whopUrl}
+              rel={isPlaceholder(siteConfig.whopUrl) ? undefined : "noreferrer"}
+              target={isPlaceholder(siteConfig.whopUrl) ? undefined : "_blank"}
+            >
+              <span className="community-mark"><WhopMark /></span>
+              <span>
+                <small>Campaign access</small>
+                <strong>Visit our Whop</strong>
+              </span>
+              <b aria-hidden="true">↗</b>
+            </a>
+
+            <a
+              className="community-link discord-link"
+              href={siteConfig.discordUrl}
+              rel={isPlaceholder(siteConfig.discordUrl) ? undefined : "noreferrer"}
+              target={isPlaceholder(siteConfig.discordUrl) ? undefined : "_blank"}
+            >
+              <span className="community-mark"><DiscordMark /></span>
+              <span>
+                <small>Community and updates</small>
+                <strong>Join our Discord</strong>
+              </span>
+              <b aria-hidden="true">↗</b>
+            </a>
           </div>
 
-          <h2>Register interest</h2>
-          <p>
-            Share a portfolio or social profile. Registration is not an offer
-            of work; it gives the team a way to review fit when relevant
-            campaigns open.
-          </p>
-          <ClipperInterestForm />
-
-          <h2>Creator FAQ</h2>
-          <h3>Do I need a large account?</h3>
-          <p>
-            Not necessarily. Campaign requirements vary, and editing quality,
-            reliability, niche fit, and platform history may all matter.
-          </p>
-          <h3>Is every submitted clip approved?</h3>
-          <p>
-            No. A submission must meet the specific brief and posting
-            requirements before it is approved.
-          </p>
-          <h3>Is work guaranteed?</h3>
-          <p>
-            No. Availability depends on active campaigns and creator fit.
-          </p>
+          {linksArePlaceholders && (
+            <p className="community-note">
+              Community destinations are being connected. Check back shortly.
+            </p>
+          )}
         </section>
       </main>
       <Footer />

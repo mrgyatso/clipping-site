@@ -22,9 +22,14 @@ export function Header() {
             </Link>
           ))}
         </div>
-        <Link className="button primary nav-cta" href="/#qualification">
-          Build campaign army <span aria-hidden="true">↗</span>
-        </Link>
+        <div className="header-actions">
+          <Link className="button secondary clipper-nav-cta" href="/for-clippers">
+            For clippers
+          </Link>
+          <Link className="button primary nav-cta" href="/#qualification">
+            Build campaign army <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
       </nav>
     </header>
   );
