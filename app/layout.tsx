@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { DM_Sans, Newsreader } from "next/font/google";
+import {
+  DM_Sans,
+  Instrument_Serif,
+  Newsreader,
+  Space_Mono,
+} from "next/font/google";
 import { Analytics } from "@/components/interactive";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
@@ -13,6 +18,21 @@ const dmSans = DM_Sans({
 const newsreader = Newsreader({
   subsets: ["latin"],
   variable: "--font-newsreader",
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: "700",
+  variable: "--font-space-mono",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  variable: "--font-instrument-serif",
   display: "swap",
 });
 
@@ -56,7 +76,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmSans.variable} ${newsreader.variable} ${dmSans.className}`}
+        className={`${dmSans.variable} ${newsreader.variable} ${spaceMono.variable} ${instrumentSerif.variable} ${dmSans.className}`}
       >
         <Analytics />
         <script

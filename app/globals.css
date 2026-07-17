@@ -9,6 +9,8 @@
   --orange-light: #ffb190;
   --font-sans: var(--font-dm-sans), Arial, sans-serif;
   --font-display: var(--font-newsreader), Georgia, serif;
+  --font-mono: var(--font-space-mono), "Courier New", monospace;
+  --font-accent: var(--font-instrument-serif), Georgia, serif;
   --shadow: 7px 7px 0 var(--ink);
 }
 
@@ -109,7 +111,16 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
   letter-spacing: -.055em;
   line-height: .92;
 }
-.hero h1 em { color: var(--orange); font-weight: inherit; }
+.hero h1 em,
+.page-intro h1 em,
+.section-heading h2 em,
+.qualification-copy h2 em,
+.closing h2 em {
+  color: var(--orange);
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+}
 .hero-copy > p { max-width: 680px; color: #d2cabd; font-size: 1.15rem; line-height: 1.7; }
 .hero-copy .hero-mechanism {
   width: fit-content;
@@ -124,8 +135,9 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 .kicker {
   display: inline-block;
   color: var(--orange-ink);
+  font-family: var(--font-mono);
   font-size: .75rem;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
 }
@@ -140,8 +152,8 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
   background: #171512;
   box-shadow: 12px 12px 0 var(--orange);
 }
-.panel-label { display: block; color: var(--orange-light); font-size: .74rem; font-weight: 900; letter-spacing: .18em; }
-.hero-panel strong { display: block; margin-top: 2rem; color: var(--orange); font-family: var(--font-display); font-size: clamp(6rem, 13vw, 11rem); font-weight: 450; line-height: .7; }
+.panel-label { display: block; color: var(--orange-light); font-family: var(--font-mono); font-size: .74rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+.hero-panel strong { display: block; margin-top: 2rem; color: var(--orange); font-family: var(--font-mono); font-size: clamp(6rem, 13vw, 11rem); font-weight: 700; line-height: .7; }
 .hero-panel > span:nth-of-type(2) { display: block; max-width: 300px; margin-top: 1.7rem; font-family: var(--font-display); font-size: 2.15rem; line-height: 1.04; }
 .panel-rule { height: 1px; margin: 2rem 0 1rem; background: rgba(255, 250, 240, .25); }
 .hero-panel p { color: #c5bcaf; font-size: .96rem; line-height: 1.65; }
@@ -161,7 +173,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--ink); }
 .metric-card { min-height: 210px; padding: 2rem; background: var(--paper-light); }
 .metric-card + .metric-card { border-left: 1px solid var(--ink); }
-.metric-card strong { display: block; color: var(--orange); font-family: var(--font-display); font-size: clamp(3.3rem, 6vw, 5.5rem); font-weight: 500; }
+.metric-card strong { display: block; color: var(--orange); font-family: var(--font-mono); font-size: clamp(3.3rem, 6vw, 5.5rem); font-weight: 700; }
 .metric-card:first-child strong { font-size: clamp(2.8rem, 5vw, 4.5rem); }
 .metric-card span { display: block; margin-top: 1rem; font-size: .84rem; font-weight: 900; letter-spacing: .1em; line-height: 1.45; text-transform: uppercase; }
 .included-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
