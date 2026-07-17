@@ -101,6 +101,7 @@ const initialFields = {
   sourceContentUrl: "",
   campaignGoal: "",
   budgetRange: "",
+  viewTargetRange: "",
   sourceReadiness: "",
   launchWindow: "",
   notes: "",
@@ -266,6 +267,18 @@ export function LeadForm() {
             ["1000_2499", "$1,000–$2,499"],
             ["2500_4999", "$2,500–$4,999"],
             ["5000_plus", "$5,000+"],
+          ]}
+        />
+        <SelectField
+          label="Desired verified-view target"
+          name="viewTargetRange"
+          value={fields.viewTargetRange}
+          update={update}
+          options={[
+            ["100k_499k", "100K–499K views"],
+            ["500k_999k", "500K–999K views"],
+            ["1m_4_9m", "1M–4.9M views"],
+            ["5m_plus", "5M+ views"],
           ]}
         />
         <SelectField

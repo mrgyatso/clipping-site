@@ -22,7 +22,8 @@ export default function PrivacyPage() {
           <h2>Information we collect</h2>
           <p>
             We collect the contact, company, source-content, campaign, budget,
-            readiness, timing, notes, and attribution information you submit.
+            desired view-target range, readiness, timing, notes, and attribution
+            information you submit.
             Optional analytics may collect standard usage events when a GA4 ID
             is configured.
           </p>

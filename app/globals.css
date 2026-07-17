@@ -108,6 +108,16 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 }
 .hero h1 em { color: var(--orange); font-weight: inherit; }
 .hero-copy > p { max-width: 650px; color: #c1b8aa; font-size: 1rem; line-height: 1.75; }
+.hero-copy .hero-mechanism {
+  width: fit-content;
+  margin-top: 1.2rem;
+  border-left: 3px solid var(--orange);
+  padding: .65rem 1rem;
+  background: rgba(255, 255, 255, .045);
+  color: #9f978b;
+  font-size: .8rem;
+}
+.hero-mechanism strong { color: var(--paper-light); }
 .kicker {
   display: inline-block;
   color: var(--orange);

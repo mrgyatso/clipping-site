@@ -4,16 +4,16 @@ import { Footer, Header } from "@/components/site-shell";
 import { faqs, processProof } from "@/data/site";
 
 const deliverables = [
-  ["20", "approved posted clips"],
-  ["21", "days in the pilot window"],
+  ["TARGET", "verified views agreed upfront"],
+  ["30", "days maximum per campaign"],
   ["$1,000", "starting campaign price"],
 ] as const;
 
 const steps = [
   {
     number: "01",
-    title: "We review the source",
-    body: "You share the content, goal, launch timing, and constraints. We confirm whether the source has enough usable material for the pilot.",
+    title: "We set the target",
+    body: "You share the content, view goal, launch timing, and constraints. We review the source and confirm a guaranteed verified-view target and itemized price.",
   },
   {
     number: "02",
@@ -22,13 +22,13 @@ const steps = [
   },
   {
     number: "03",
-    title: "We manage delivery",
-    body: "Clippers create and post. We coordinate the workflow, review submissions, and record each approved post.",
+    title: "We mobilize the army",
+    body: "Clippers create and publish from creator accounts. We coordinate the campaign, review submissions, and scale approved post volume toward the target.",
   },
   {
     number: "04",
-    title: "You receive the record",
-    body: "At the end of the pilot, you get approved post links and the platform metrics available during the reporting window.",
+    title: "We verify the views",
+    body: "The campaign ends when the target is reached or at the day-30 cutoff. You receive approved post links, public platform counts, and the final guarantee calculation.",
   },
 ] as const;
 
@@ -40,15 +40,17 @@ export default function Home() {
       <main>
         <section className="hero">
           <div className="hero-copy">
-            <span className="kicker light">Managed clipping pilot</span>
-            <h1>
-              Turn ready source content into{" "}
-              <em>20 approved posted clips.</em>
-            </h1>
+            <span className="kicker light">For YouTubers and live sellers</span>
+            <h1>Your best moments shouldn’t <em>die after 48 hours.</em></h1>
             <p>
-              A 21-day managed pilot for brands that want short-form
-              distribution without recruiting, briefing, and reviewing
-              creators themselves.
+              Build a distribution army around every stream. ClipWave mobilizes
+              clippers to create and publish as many posts as your campaign
+              needs—until your guaranteed verified-view target is reached or 30
+              days pass.
+            </p>
+            <p className="hero-mechanism">
+              <strong>Editors deliver files.</strong> We manage the creators who
+              publish them.
             </p>
             <div className="button-row">
               <TrackedLink
@@ -56,25 +58,25 @@ export default function Home() {
                 href="#qualification"
                 event="hero_fit_cta_click"
               >
-                Check campaign fit <span aria-hidden="true">↗</span>
+                Build my distribution army <span aria-hidden="true">↗</span>
               </TrackedLink>
               <Link className="text-link light-link" href="#pilot">
                 See what’s included ↓
               </Link>
             </div>
             <p className="microcopy">
-              Starting at $1,000. Final scope follows a review of your source
-              content. Views are not guaranteed.
+              Campaigns start at $1,000. Your view target, post volume, and
+              final price are confirmed after source review.
             </p>
           </div>
-          <div className="hero-panel" aria-label="Pilot delivery overview">
-            <span className="panel-label">Pilot / 001</span>
-            <strong>20</strong>
-            <span>approved clips posted over 21 days</span>
+          <div className="hero-panel" aria-label="Campaign guarantee overview">
+            <span className="panel-label">Campaign / target-led</span>
+            <strong>30</strong>
+            <span>days maximum to reach your guaranteed view target</span>
             <div className="panel-rule" />
             <p>
-              Briefing, coordination, review, posting record, and available
-              platform metrics.
+              Flexible post volume. Public view verification. Pro-rata
+              distribution-fee protection.
             </p>
           </div>
         </section>
@@ -82,11 +84,11 @@ export default function Home() {
         <section className="pilot section" id="pilot">
           <div className="section-heading reveal">
             <span className="kicker">The offer</span>
-            <h2>A defined first campaign—not an open-ended retainer.</h2>
+            <h2>Buy distribution—not another folder of clips.</h2>
             <p>
-              The pilot is built to test your source material and operating
-              fit. It promises a clear delivery standard, not a speculative
-              performance outcome.
+              Freelancers stop at production. ClipWave owns the operating loop:
+              creator briefing, publishing, review, public view tracking, and a
+              guaranteed target backed by proportional distribution-fee relief.
             </p>
           </div>
           <div className="metric-grid reveal">
@@ -103,9 +105,11 @@ export default function Home() {
               <ul className="check-list">
                 <li>Source-content and campaign-fit review</li>
                 <li>Written creative and posting brief</li>
-                <li>Clipper coordination during the pilot</li>
+                <li>A guaranteed verified-view target</li>
+                <li>Clipper coordination during the campaign</li>
                 <li>Review against agreed approval criteria</li>
-                <li>20 approved posts and a delivery record</li>
+                <li>As many approved posts as the agreed scope needs</li>
+                <li>Public view tracking and a delivery record</li>
               </ul>
             </article>
             <article className="outline-card">
@@ -113,8 +117,9 @@ export default function Home() {
               <h3>Starting price, confirmed after review.</h3>
               <p>
                 The $1,000 starting point assumes usable source content and a
-                straightforward brief. Editing complexity, rights, volume,
-                turnaround, and brand requirements can change final pricing.
+                straightforward brief. The target, editing complexity, rights,
+                post volume, and brand requirements determine final pricing.
+                Proposals itemize setup and distribution fees.
               </p>
             </article>
           </div>
@@ -148,7 +153,7 @@ export default function Home() {
         <section className="process section" id="process">
           <div className="section-heading left reveal">
             <span className="kicker">How it works</span>
-            <h2>One managed path from source review to delivery.</h2>
+            <h2>One managed path from source review to verified reach.</h2>
           </div>
           <div className="steps">
             {steps.map((step) => (
@@ -174,7 +179,7 @@ export default function Home() {
               <span>Qualified-call preparation</span>
               <ul>
                 <li>Your primary source-content link</li>
-                <li>The outcome this campaign should support</li>
+                <li>Your preferred verified-view target</li>
                 <li>Brand, rights, or compliance constraints</li>
                 <li>Your ideal launch date</li>
               </ul>
@@ -188,23 +193,23 @@ export default function Home() {
         <section className="objections section">
           <div className="section-heading reveal">
             <span className="kicker">A realistic fit</span>
-            <h2>What the pilot is—and what it is not.</h2>
+            <h2>What the guarantee covers—and what it doesn’t.</h2>
           </div>
           <div className="objection-grid reveal">
             <article>
               <span>It is</span>
-              <h3>A managed operational test</h3>
+              <h3>A verified distribution target</h3>
               <p>
-                A way to test whether your source content can support a
-                repeatable clipping workflow with clear delivery standards.
+                Approved campaign posts count toward a view target measured
+                from native public platform counters at the cutoff.
               </p>
             </article>
             <article>
               <span>It is not</span>
-              <h3>A guaranteed viral outcome</h3>
+              <h3>A promise of sales or virality</h3>
               <p>
-                Posting more creative creates more opportunities, but no agency
-                can honestly promise views, conversions, or platform reach.
+                The guarantee covers verified views defined in your proposal,
+                not conversions, revenue, followers, or one specific viral post.
               </p>
             </article>
             <article>
@@ -234,14 +239,14 @@ export default function Home() {
         </section>
 
         <section className="closing">
-          <span className="kicker light">Start with the source</span>
-          <h2>Know whether your campaign is workable before you book.</h2>
+          <span className="kicker light">Your content already did the work</span>
+          <h2>Now build the distribution army that keeps it moving.</h2>
           <TrackedLink
             className="button primary large"
             href="#qualification"
             event="closing_fit_cta_click"
           >
-            Check campaign fit <span aria-hidden="true">↗</span>
+            Build my distribution army <span aria-hidden="true">↗</span>
           </TrackedLink>
         </section>
       </main>

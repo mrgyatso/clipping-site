@@ -13,6 +13,12 @@ export type BudgetRange =
   | "2500_4999"
   | "5000_plus";
 
+export type ViewTargetRange =
+  | "100k_499k"
+  | "500k_999k"
+  | "1m_4_9m"
+  | "5m_plus";
+
 export type SourceReadiness = "ready" | "needs_preparation" | "not_ready";
 export type LaunchWindow = "within_30_days" | "one_to_three_months" | "later";
 
@@ -33,6 +39,7 @@ export type LeadSubmission = {
   sourceContentUrl: string;
   campaignGoal: CampaignGoal;
   budgetRange: BudgetRange;
+  viewTargetRange: ViewTargetRange;
   sourceReadiness: SourceReadiness;
   launchWindow: LaunchWindow;
   notes?: string;
@@ -58,7 +65,7 @@ export type CampaignCaseStudy = {
 export const siteConfig = {
   name: "ClipWave",
   description:
-    "Managed short-form clipping campaigns for brands with source content ready to distribute.",
+    "Guaranteed-view distribution campaigns for YouTubers and live sellers with content ready to move.",
   bookingDuration: "30 minutes",
   calLink: process.env.NEXT_PUBLIC_CAL_LINK ?? "zack-woods-si9bra/30min",
 } as const;
@@ -85,7 +92,7 @@ export const processProof = [
   },
   {
     title: "A delivery record",
-    body: "You receive a campaign-level record of approved clips, post links, platforms, dates, and available view data.",
+    body: "You receive a campaign-level record of approved posts, public platform counts, cutoff dates, and verified views toward the guarantee.",
   },
 ] as const;
 
@@ -93,17 +100,22 @@ export const faqs = [
   {
     question: "What is included in the pilot?",
     answer:
-      "Campaign setup, a written brief, clipper coordination, review, and 20 approved clips posted over 21 days. You also receive a delivery record with post links and available platform metrics.",
+      "Campaign setup, a written brief, clipper coordination, review, flexible post volume within the agreed scope, and public view tracking. The campaign runs until its guaranteed verified-view target is reached or 30 days after the first approved post goes live.",
   },
   {
     question: "Do you guarantee views?",
     answer:
-      "No. Performance depends on the source content, audience, platform, timing, and creative response. We guarantee only the operational deliverables defined in the final scope.",
+      "For eligible campaigns, yes. Your signed proposal defines a verified-view target and itemizes the distribution fee. If approved campaign posts fall short at the day-30 cutoff, the undelivered percentage is refunded from that distribution fee. Setup and strategy fees are nonrefundable.",
   },
   {
     question: "Why does the pilot start at $1,000?",
     answer:
-      "Source length, editing complexity, rights, brand constraints, and posting requirements affect the work involved. We review your source content before confirming final scope and price.",
+      "The guaranteed view target, source length, editing complexity, rights, brand constraints, and required post volume all affect the work involved. We review your source content before confirming the target, itemized fees, and final price.",
+  },
+  {
+    question: "How are verified views counted?",
+    answer:
+      "We sum native public view counters on approved, recorded campaign posts at the campaign cutoff. Removed, private, duplicate, paid or promoted, fraudulent, and otherwise invalid views or posts do not count.",
   },
   {
     question: "What source content works best?",

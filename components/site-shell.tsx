@@ -23,7 +23,7 @@ export function Header() {
           ))}
         </div>
         <Link className="button primary nav-cta" href="/#qualification">
-          Check campaign fit <span aria-hidden="true">↗</span>
+          Build campaign army <span aria-hidden="true">↗</span>
         </Link>
       </nav>
     </header>
@@ -37,8 +37,8 @@ export function Footer() {
         <div>
           <Logo />
           <p>
-            Managed short-form distribution with defined deliverables and
-            honest reporting.
+            Guaranteed-view distribution campaigns for YouTubers and live
+            sellers with content ready to move.
           </p>
         </div>
         <div className="footer-links">
@@ -62,7 +62,7 @@ export function Footer() {
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} {siteConfig.name}</span>
-        <span>No view guarantees. Final scope follows source review.</span>
+        <span>View guarantees apply only under an eligible signed campaign scope.</span>
       </div>
     </footer>
   );
