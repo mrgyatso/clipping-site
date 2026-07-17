@@ -2,12 +2,10 @@ import { NextResponse } from "next/server";
 import type {
   BudgetRange,
   CampaignGoal,
-  LaunchWindow,
   LeadAttribution,
   LeadClassification,
   LeadSubmission,
   SourceReadiness,
-  ViewTargetRange,
 } from "@/data/site";
 import { siteConfig } from "@/data/site";
 
@@ -27,21 +25,10 @@ const budgetRanges = new Set<BudgetRange>([
   "2500_4999",
   "5000_plus",
 ]);
-const viewTargetRanges = new Set<ViewTargetRange>([
-  "100k_499k",
-  "500k_999k",
-  "1m_4_9m",
-  "5m_plus",
-]);
 const sourceReadinessValues = new Set<SourceReadiness>([
   "ready",
   "needs_preparation",
   "not_ready",
-]);
-const launchWindows = new Set<LaunchWindow>([
-  "within_30_days",
-  "one_to_three_months",
-  "later",
 ]);
 
 function clean(value: unknown, maxLength = 300) {
@@ -62,11 +49,8 @@ function validUrl(value: string) {
 function classify(
   budgetRange: BudgetRange,
   sourceReadiness: SourceReadiness,
-  launchWindow: LaunchWindow,
 ): LeadClassification {
-  return budgetRange !== "under_1000" &&
-    sourceReadiness === "ready" &&
-    launchWindow === "within_30_days"
+  return budgetRange !== "under_1000" && sourceReadiness === "ready"
     ? "qualified"
     : "manual_review";
 }
@@ -125,9 +109,7 @@ export async function POST(request: Request) {
   const sourceContentUrl = clean(body.sourceContentUrl, 1000);
   const campaignGoal = clean(body.campaignGoal) as CampaignGoal;
   const budgetRange = clean(body.budgetRange) as BudgetRange;
-  const viewTargetRange = clean(body.viewTargetRange) as ViewTargetRange;
   const sourceReadiness = clean(body.sourceReadiness) as SourceReadiness;
-  const launchWindow = clean(body.launchWindow) as LaunchWindow;
   const notes = clean(body.notes, 3000);
 
   const invalid =
@@ -137,9 +119,7 @@ export async function POST(request: Request) {
     !validUrl(sourceContentUrl) ||
     !campaignGoals.has(campaignGoal) ||
     !budgetRanges.has(budgetRange) ||
-    !viewTargetRanges.has(viewTargetRange) ||
-    !sourceReadinessValues.has(sourceReadiness) ||
-    !launchWindows.has(launchWindow);
+    !sourceReadinessValues.has(sourceReadiness);
 
   if (invalid) {
     return NextResponse.json(
@@ -168,11 +148,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const classification = classify(
-    budgetRange,
-    sourceReadiness,
-    launchWindow,
-  );
+  const classification = classify(budgetRange, sourceReadiness);
   const lead: LeadSubmission = {
     name,
     email,
@@ -180,9 +156,7 @@ export async function POST(request: Request) {
     sourceContentUrl,
     campaignGoal,
     budgetRange,
-    viewTargetRange,
     sourceReadiness,
-    launchWindow,
     notes: notes || undefined,
     classification,
     attribution: sanitizeAttribution(body.attribution),
@@ -225,9 +199,8 @@ export async function POST(request: Request) {
           `Source content: ${sourceContentUrl}`,
           `Goal: ${campaignGoal}`,
           `Budget: ${budgetRange}`,
-          `Desired verified-view target: ${viewTargetRange}`,
+          "Offer: $1,000 / 250K verified views",
           `Source readiness: ${sourceReadiness}`,
-          `Launch window: ${launchWindow}`,
           `Notes: ${notes || "—"}`,
           `Attribution: ${JSON.stringify(lead.attribution)}`,
           `Submitted: ${lead.submittedAt}`,
@@ -263,7 +236,7 @@ export async function POST(request: Request) {
       name,
       email,
       company,
-      view_target: viewTargetRange,
+      campaign_offer: "250k_verified_views",
       utm_source: lead.attribution.source ?? "",
       utm_medium: lead.attribution.medium ?? "",
       utm_campaign: lead.attribution.campaign ?? "",

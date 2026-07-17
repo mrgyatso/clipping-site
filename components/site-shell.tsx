@@ -42,8 +42,8 @@ export function Footer() {
         <div>
           <Logo />
           <p>
-            Guaranteed-view distribution campaigns for YouTubers and live
-            sellers with content ready to move.
+            A $1,000 distribution campaign that keeps moving until approved
+            posts reach 250,000 verified views.
           </p>
         </div>
         <div className="footer-links">
@@ -67,7 +67,7 @@ export function Footer() {
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} {siteConfig.name}</span>
-        <span>View guarantees apply only under an eligible signed campaign scope.</span>
+        <span>The 250K commitment applies only under an accepted campaign agreement.</span>
       </div>
     </footer>
   );

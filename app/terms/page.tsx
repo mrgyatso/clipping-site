@@ -18,7 +18,7 @@ export default function TermsPage() {
           description="The terms governing use of this website and its campaign-fit process."
         />
         <article className="content-page">
-          <p>Last updated: July 16, 2026.</p>
+          <p>Last updated: July 17, 2026.</p>
           <h2>Website use</h2>
           <p>
             You may use this website to evaluate ClipWave and submit legitimate
@@ -33,40 +33,47 @@ export default function TermsPage() {
           </p>
           <h2>Campaign pricing</h2>
           <p>
-            The pilot starts at $1,000. Final pricing depends on source content
-            and scope. Eligible proposals separately itemize nonrefundable
-            setup and strategy fees and the distribution fee covered by the
-            verified-view guarantee.
+            An accepted campaign has a maximum price of $1,000. The client pays
+            a nonrefundable $250 launch payment before work begins. The remaining
+            $750 becomes due when the campaign reaches 250,000 valid verified
+            views, subject to the separately accepted campaign agreement.
           </p>
           <h2>Verified-view guarantee</h2>
           <p>
-            A view guarantee applies only when it appears in a signed campaign
-            proposal. The campaign begins when its first approved post goes
-            live and ends when the agreed target is reached or 30 calendar days
-            later, whichever comes first.
+            The 250,000-view commitment applies only when it appears in an
+            accepted campaign agreement. The campaign begins when its first
+            approved post goes live and continues without an automatic time
+            cutoff until it reaches the target or ends early under that agreement.
           </p>
           <p>
             Verified views are the native public view counts captured at the
-            campaign cutoff on approved posts created, published, and recorded
-            under the campaign brief. Removed, private, duplicate, paid or
+            campaign closing measurement on approved posts created, published,
+            and recorded under the campaign brief. Removed, private, duplicate, paid or
             promoted, fraudulent, and otherwise invalid views or posts do not
             count toward the target.
           </p>
-          <h2>Proportional distribution refund</h2>
+          <h2>Early termination</h2>
           <p>
-            If an eligible campaign misses its guaranteed target at the day-30
-            cutoff, the distribution-fee refund is calculated as: distribution
-            fee × undelivered guaranteed views ÷ guaranteed target. Setup and
-            strategy fees remain nonrefundable. The signed proposal controls
-            eligibility and any exclusions for client-caused takedowns, rights
-            issues, source-content changes, or material platform disruptions.
+            A client may cancel in writing before completion. ClipWave may end a
+            campaign when rights, source availability, client cooperation,
+            platform restrictions, fraud, safety, or legal or compliance issues
+            make continued delivery impracticable. The parties may also end a
+            campaign by mutual written agreement.
+          </p>
+          <p>
+            On an eligible early termination, the final performance invoice is
+            calculated as $750 × valid verified views ÷ 250,000 and is capped at
+            $750. The initial $250 launch payment remains nonrefundable. The
+            accepted campaign agreement controls termination eligibility,
+            measurement timing, payment timing, and any additional exclusions.
           </p>
           <h2>Post volume and outcomes</h2>
           <p>
             ClipWave may publish as many approved posts as the campaign needs
-            within the agreed budget, source-content limits, campaign brief,
-            and 30-day window. The guarantee covers only the verified-view
-            target; it does not guarantee sales, revenue, followers,
+            within the source-content limits and campaign brief. Total campaign
+            charges do not exceed $1,000, and views beyond 250,000 do not create
+            an additional charge without a separate written agreement. The
+            commitment covers only verified views; it does not guarantee sales, revenue, followers,
             engagement, conversions, or a specific post becoming viral.
           </p>
           <h2>Your content</h2>

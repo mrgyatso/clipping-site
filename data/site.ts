@@ -13,14 +13,7 @@ export type BudgetRange =
   | "2500_4999"
   | "5000_plus";
 
-export type ViewTargetRange =
-  | "100k_499k"
-  | "500k_999k"
-  | "1m_4_9m"
-  | "5m_plus";
-
 export type SourceReadiness = "ready" | "needs_preparation" | "not_ready";
-export type LaunchWindow = "within_30_days" | "one_to_three_months" | "later";
 
 export type LeadAttribution = {
   source?: string;
@@ -39,9 +32,7 @@ export type LeadSubmission = {
   sourceContentUrl: string;
   campaignGoal: CampaignGoal;
   budgetRange: BudgetRange;
-  viewTargetRange: ViewTargetRange;
   sourceReadiness: SourceReadiness;
-  launchWindow: LaunchWindow;
   notes?: string;
   classification: LeadClassification;
   attribution: LeadAttribution;
@@ -65,7 +56,7 @@ export type CampaignCaseStudy = {
 export const siteConfig = {
   name: "ClipWave",
   description:
-    "Guaranteed-view distribution campaigns for YouTubers and live sellers with content ready to move.",
+    "A $1,000 distribution campaign that runs until approved posts reach 250,000 verified views.",
   bookingDuration: "30 minutes",
   calLink: process.env.NEXT_PUBLIC_CAL_LINK ?? "zack-woods-si9bra/30min",
   whopUrl: process.env.NEXT_PUBLIC_WHOP_URL ?? "#",
@@ -93,7 +84,7 @@ export const processProof = [
   },
   {
     title: "A delivery record",
-    body: "You receive a campaign-level record of approved posts, public platform counts, cutoff dates, and verified views toward the guarantee.",
+    body: "You receive a campaign-level record of approved posts, public platform counts, the closing measurement, and verified views toward 250K.",
   },
 ] as const;
 
@@ -101,32 +92,27 @@ export const faqs = [
   {
     question: "What is included in the pilot?",
     answer:
-      "Campaign setup, a written brief, clipper coordination, review, flexible post volume within the agreed scope, and public view tracking. The campaign runs until its guaranteed verified-view target is reached or 30 days after the first approved post goes live.",
+      "Source review, campaign launch, a written brief, clipper coordination, flexible approved post volume, and public view tracking. The campaign continues until approved posts reach 250,000 valid verified views unless it ends early under the signed terms.",
   },
   {
     question: "Do you guarantee views?",
     answer:
-      "For eligible campaigns, yes. Your signed proposal defines a verified-view target and itemizes the distribution fee. If approved campaign posts fall short at the day-30 cutoff, the undelivered percentage is refunded from that distribution fee. Setup and strategy fees are nonrefundable.",
+      "For an accepted campaign, the target is 250,000 valid verified views. You pay $250 to launch and the $750 completion balance when the target is reached. If the campaign ends early under the signed terms, only that $750 balance is prorated to valid views delivered.",
   },
   {
-    question: "Why does the pilot start at $1,000?",
+    question: "How does the $1,000 campaign price work?",
     answer:
-      "The guaranteed view target, source length, editing complexity, rights, brand constraints, and required post volume all affect the work involved. We review your source content before confirming the target, itemized fees, and final price.",
+      "$250 is paid before launch for source review, briefing, routing, and campaign management. The remaining $750 is due when approved campaign posts reach 250,000 valid verified views. Total charges are capped at $1,000.",
   },
   {
     question: "How are verified views counted?",
     answer:
-      "We sum native public view counters on approved, recorded campaign posts at the campaign cutoff. Removed, private, duplicate, paid or promoted, fraudulent, and otherwise invalid views or posts do not count.",
+      "We sum native public view counters on approved, recorded campaign posts when the campaign reaches 250K or ends early. Removed, private, duplicate, paid or promoted, fraudulent, and otherwise invalid views or posts do not count.",
   },
   {
     question: "What source content works best?",
     answer:
       "Podcasts, interviews, streams, webinars, product demos, and other footage with clear moments and enough usable material for multiple vertical edits.",
-  },
-  {
-    question: "What if I am not ready to launch within 30 days?",
-    answer:
-      "Your submission goes to manual review. We will assess fit and respond by email rather than opening the scheduling calendar immediately.",
   },
   {
     question: "Can I apply as a clipper?",

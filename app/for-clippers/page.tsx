@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TrackedLink } from "@/components/interactive";
 import { Footer, Header } from "@/components/site-shell";
 import { siteConfig } from "@/data/site";
 
@@ -45,9 +46,28 @@ export default function ForClippersPage() {
             new work as it opens.
           </p>
 
+          <div className="clipper-perks">
+            <article>
+              <span>01</span>
+              <h2>Content supplied</h2>
+              <p>Work from campaign-ready long-form footage supplied through ClipWave.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h2>No client prospecting</h2>
+              <p>We source the campaigns and centralize each brief, so you can focus on the work.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h2>Performance-based upside</h2>
+              <p>Earn against verified campaign results under terms disclosed before you participate.</p>
+            </article>
+          </div>
+
           <div className="community-links" id="community-links">
-            <a
+            <TrackedLink
               className="community-link whop-link"
+              event="clipper_whop_click"
               href={siteConfig.whopUrl}
               rel={isPlaceholder(siteConfig.whopUrl) ? undefined : "noreferrer"}
               target={isPlaceholder(siteConfig.whopUrl) ? undefined : "_blank"}
@@ -58,10 +78,11 @@ export default function ForClippersPage() {
                 <strong>Visit our Whop</strong>
               </span>
               <b aria-hidden="true">↗</b>
-            </a>
+            </TrackedLink>
 
-            <a
+            <TrackedLink
               className="community-link discord-link"
+              event="clipper_discord_click"
               href={siteConfig.discordUrl}
               rel={isPlaceholder(siteConfig.discordUrl) ? undefined : "noreferrer"}
               target={isPlaceholder(siteConfig.discordUrl) ? undefined : "_blank"}
@@ -72,7 +93,7 @@ export default function ForClippersPage() {
                 <strong>Join our Discord</strong>
               </span>
               <b aria-hidden="true">↗</b>
-            </a>
+            </TrackedLink>
           </div>
 
           {linksArePlaceholders && (

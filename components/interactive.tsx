@@ -45,17 +45,23 @@ export function TrackedLink({
   href,
   event,
   className,
+  target,
+  rel,
   children,
 }: {
   href: string;
   event: string;
   className?: string;
+  target?: "_blank" | "_self" | "_parent" | "_top";
+  rel?: string;
   children: React.ReactNode;
 }) {
   return (
     <a
       className={className}
       href={href}
+      target={target}
+      rel={rel}
       onClick={() => trackEvent(event, { href })}
     >
       {children}
@@ -101,9 +107,7 @@ const initialFields = {
   sourceContentUrl: "",
   campaignGoal: "",
   budgetRange: "",
-  viewTargetRange: "",
   sourceReadiness: "",
-  launchWindow: "",
   notes: "",
   website: "",
 };
@@ -186,7 +190,7 @@ export function LeadForm() {
         <h3>Choose a time to review your source content.</h3>
         <p>
           Before the call, have your source-content link, primary goal, brand
-          guidelines, and ideal launch date ready.
+          guidelines, and content permissions ready.
         </p>
         <CalEmbed calendarUrl={result.calendarUrl} />
       </div>
@@ -204,7 +208,7 @@ export function LeadForm() {
         <span className="kicker">Submitted for manual review</span>
         <h3>Thanks — we’ll review the details first.</h3>
         <p>
-          Your timing, budget, or content readiness needs a closer look. We’ll
+          Your budget or content readiness needs a closer look. We’ll
           follow up by email; the calendar stays closed until fit is confirmed.
         </p>
       </div>
@@ -270,18 +274,6 @@ export function LeadForm() {
           ]}
         />
         <SelectField
-          label="Desired verified-view target"
-          name="viewTargetRange"
-          value={fields.viewTargetRange}
-          update={update}
-          options={[
-            ["100k_499k", "100K–499K views"],
-            ["500k_999k", "500K–999K views"],
-            ["1m_4_9m", "1M–4.9M views"],
-            ["5m_plus", "5M+ views"],
-          ]}
-        />
-        <SelectField
           label="Source-content readiness"
           name="sourceReadiness"
           value={fields.sourceReadiness}
@@ -290,17 +282,6 @@ export function LeadForm() {
             ["ready", "Ready to share"],
             ["needs_preparation", "Needs light preparation"],
             ["not_ready", "Not ready yet"],
-          ]}
-        />
-        <SelectField
-          label="Target launch window"
-          name="launchWindow"
-          value={fields.launchWindow}
-          update={update}
-          options={[
-            ["within_30_days", "Within 30 days"],
-            ["one_to_three_months", "1–3 months"],
-            ["later", "Later / exploring"],
           ]}
         />
       </div>

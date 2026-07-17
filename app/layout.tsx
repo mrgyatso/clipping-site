@@ -41,7 +41,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Managed Clipping Campaigns | ClipWave",
+    default: "250K Verified-View Campaign | ClipWave",
     template: "%s | ClipWave",
   },
   description: siteConfig.description,
@@ -49,13 +49,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
-    title: "Managed Clipping Campaigns | ClipWave",
+    title: "250K Verified-View Campaign | ClipWave",
     description: siteConfig.description,
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Managed Clipping Campaigns | ClipWave",
+    title: "250K Verified-View Campaign | ClipWave",
     description: siteConfig.description,
   },
 };

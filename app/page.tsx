@@ -4,31 +4,54 @@ import { Footer, Header } from "@/components/site-shell";
 import { faqs, processProof } from "@/data/site";
 
 const deliverables = [
-  ["TARGET", "verified views agreed upfront"],
-  ["30", "days maximum per campaign"],
-  ["$1,000", "starting campaign price"],
+  ["25%", "paid before campaign launch"],
+  ["75%", "paid at verified completion"],
+  ["$1,000", "maximum campaign price"],
+] as const;
+
+const valueFlow = [
+  {
+    label: "Client",
+    title: "Content + $250",
+    body: "You supply campaign-ready footage and fund the launch.",
+  },
+  {
+    label: "ClipWave",
+    title: "Brief + route",
+    body: "We direct the creative, coordinate clippers, and verify delivery.",
+  },
+  {
+    label: "Clippers",
+    title: "Create + post",
+    body: "The network publishes approved clips from creator accounts.",
+  },
+  {
+    label: "Completion",
+    title: "250K verified views",
+    body: "At the target, the campaign closes and the final $750 is due.",
+  },
 ] as const;
 
 const steps = [
   {
     number: "01",
-    title: "We set the target",
-    body: "You share the content, view goal, launch timing, and constraints. We review the source and confirm a guaranteed verified-view target and itemized price.",
+    title: "We qualify the source",
+    body: "You share the footage, goal, and constraints. We confirm that the material can support the 250K verified-view campaign.",
   },
   {
     number: "02",
-    title: "We define the brief",
-    body: "Clip direction, brand boundaries, approval criteria, platforms, and reporting expectations are agreed before production.",
+    title: "You fund the launch",
+    body: "The first $250 secures campaign setup. We agree on clip direction, brand boundaries, platforms, and approval criteria.",
   },
   {
     number: "03",
     title: "We mobilize the army",
-    body: "Clippers create and publish from creator accounts. We coordinate the campaign, review submissions, and scale approved post volume toward the target.",
+    body: "Clippers create and publish from creator accounts. We coordinate, review, and keep approved posts moving until they reach the target.",
   },
   {
     number: "04",
-    title: "We verify the views",
-    body: "The campaign ends when the target is reached or at the day-30 cutoff. You receive approved post links, public platform counts, and the final guarantee calculation.",
+    title: "We close at 250K",
+    body: "We capture the native public counts, deliver the campaign record, and invoice the final $750 when valid verified views reach 250K.",
   },
 ] as const;
 
@@ -45,8 +68,8 @@ export default function Home() {
             <p>
               Build a distribution army around every stream. ClipWave mobilizes
               clippers to create and publish as many posts as your campaign
-              needs—until your guaranteed verified-view target is reached or 30
-              days pass.
+              needs—and keeps the campaign moving until it reaches 250,000
+              verified views.
             </p>
             <p className="hero-mechanism">
               <strong>Editors deliver files.</strong> We manage the creators who
@@ -65,18 +88,18 @@ export default function Home() {
               </Link>
             </div>
             <p className="microcopy">
-              Campaigns start at $1,000. Your view target, post volume, and
-              final price are confirmed after source review.
+              $250 launches the campaign. The final $750 is due when approved
+              posts reach 250K valid verified views.
             </p>
           </div>
           <div className="hero-panel" aria-label="Campaign guarantee overview">
             <span className="panel-label">Campaign / target-led</span>
-            <strong>30</strong>
-            <span>days maximum to reach your guaranteed view target</span>
+            <strong>250K</strong>
+            <span>verified views before the campaign closes</span>
             <div className="panel-rule" />
             <p>
-              Flexible post volume. Public view verification. Pro-rata
-              distribution-fee protection.
+              Flexible post volume. Native public verification. $1,000 total
+              campaign cap.
             </p>
           </div>
         </section>
@@ -88,7 +111,7 @@ export default function Home() {
             <p>
               Freelancers stop at production. ClipWave owns the operating loop:
               creator briefing, publishing, review, public view tracking, and a
-              guaranteed target backed by proportional distribution-fee relief.
+              run-to-target commitment backed by performance-based billing.
             </p>
           </div>
           <div className="metric-grid reveal">
@@ -99,27 +122,39 @@ export default function Home() {
               </article>
             ))}
           </div>
+          <div className="value-flow reveal" aria-label="How campaign value moves">
+            {valueFlow.map((item, index) => (
+              <article key={item.label}>
+                <span>{item.label}</span>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+                {index < valueFlow.length - 1 && (
+                  <b aria-hidden="true">→</b>
+                )}
+              </article>
+            ))}
+          </div>
           <div className="included-grid reveal">
             <article className="dark-card">
               <span className="kicker light">Included</span>
               <ul className="check-list">
                 <li>Source-content and campaign-fit review</li>
                 <li>Written creative and posting brief</li>
-                <li>A guaranteed verified-view target</li>
+                <li>A fixed 250K verified-view target</li>
                 <li>Clipper coordination during the campaign</li>
                 <li>Review against agreed approval criteria</li>
-                <li>As many approved posts as the agreed scope needs</li>
+                <li>As many approved posts as the campaign needs</li>
                 <li>Public view tracking and a delivery record</li>
               </ul>
             </article>
             <article className="outline-card">
               <span className="kicker">Scope note</span>
-              <h3>Starting price, confirmed after review.</h3>
+              <h3>One target. One campaign cap.</h3>
               <p>
-                The $1,000 starting point assumes usable source content and a
-                straightforward brief. The target, editing complexity, rights,
-                post volume, and brand requirements determine final pricing.
-                Proposals itemize setup and distribution fees.
+                The $250 launch payment covers source review, briefing, routing,
+                and management. The remaining $750 is due at 250K valid verified
+                views. If the campaign ends early under the signed terms, only
+                that completion balance is prorated to delivered views.
               </p>
             </article>
           </div>
@@ -169,19 +204,19 @@ export default function Home() {
         <section className="qualification section" id="qualification">
           <div className="qualification-copy reveal">
             <span className="kicker light">Campaign qualification</span>
-            <h2>Check whether the pilot fits your next 30 days.</h2>
+            <h2>Check whether your content can carry the campaign.</h2>
             <p>
-              Ready-to-share source content, at least a $1,000 budget, and a
-              launch target within 30 days unlock scheduling after successful
-              submission. Other requests receive a manual review.
+              Ready-to-share source content and a $1,000 campaign budget unlock
+              scheduling after successful submission. Other requests receive a
+              manual review.
             </p>
             <div className="prepare-card">
               <span>Qualified-call preparation</span>
               <ul>
                 <li>Your primary source-content link</li>
-                <li>Your preferred verified-view target</li>
+                <li>Your primary campaign goal</li>
                 <li>Brand, rights, or compliance constraints</li>
-                <li>Your ideal launch date</li>
+                <li>Confirmation that the $250 launch payment is ready</li>
               </ul>
             </div>
           </div>
@@ -200,8 +235,8 @@ export default function Home() {
               <span>It is</span>
               <h3>A verified distribution target</h3>
               <p>
-                Approved campaign posts count toward a view target measured
-                from native public platform counters at the cutoff.
+                Approved campaign posts run toward 250K views measured from
+                native public platform counters when the campaign closes.
               </p>
             </article>
             <article>
