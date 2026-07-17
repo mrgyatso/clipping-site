@@ -193,7 +193,7 @@ export default function Home() {
         <section className="objections section">
           <div className="section-heading reveal">
             <span className="kicker">A realistic fit</span>
-            <h2>What the guarantee covers—and what it doesn’t.</h2>
+            <h2>Know exactly what ClipWave is—and isn’t.</h2>
           </div>
           <div className="objection-grid reveal">
             <article>
@@ -206,10 +206,11 @@ export default function Home() {
             </article>
             <article>
               <span>It is not</span>
-              <h3>A promise of sales or virality</h3>
+              <h3>Another folder of clips to post yourself</h3>
               <p>
-                The guarantee covers verified views defined in your proposal,
-                not conversions, revenue, followers, or one specific viral post.
+                Editors hand you files and leave distribution on your plate.
+                ClipWave coordinates clippers who create and publish from their
+                own accounts, so reach is built into the campaign.
               </p>
             </article>
             <article>
