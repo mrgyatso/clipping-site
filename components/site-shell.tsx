@@ -42,8 +42,8 @@ export function Footer() {
         <div>
           <Logo />
           <p>
-            A $1,000 distribution campaign that keeps moving until approved
-            posts reach 250,000 verified views.
+            Performance-based short-form distribution. You only pay for the
+            verified views we deliver.
           </p>
         </div>
         <div className="footer-links">
@@ -67,7 +67,7 @@ export function Footer() {
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} {siteConfig.name}</span>
-        <span>The 250K commitment applies only under an accepted campaign agreement.</span>
+        <span>View targets apply only under an accepted campaign agreement.</span>
       </div>
     </footer>
   );

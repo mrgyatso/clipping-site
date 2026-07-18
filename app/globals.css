@@ -420,12 +420,13 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 .community-link strong { font-size: 1.18rem; }
 .community-link b { font-size: 1.4rem; }
 .community-note { margin-top: 1.5rem; color: #aaa195; font-size: .82rem; }
-.reveal { opacity: 0; transform: translateY(12px); transition: opacity .55s ease, transform .55s ease; }
-.reveal.in { opacity: 1; transform: none; }
+/* Scoped to .js so content stays visible if JavaScript never runs. */
+.js .reveal { opacity: 0; transform: translateY(12px); transition: opacity .55s ease, transform .55s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
 }
 @media (max-width: 850px) {
   .nav-links { display: none; }

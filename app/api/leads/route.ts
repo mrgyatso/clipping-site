@@ -199,7 +199,7 @@ export async function POST(request: Request) {
           `Source content: ${sourceContentUrl}`,
           `Goal: ${campaignGoal}`,
           `Budget: ${budgetRange}`,
-          "Offer: $1,000 / 250K verified views",
+          "Offer: $4 per 1,000 verified views, $1,000 minimum",
           `Source readiness: ${sourceReadiness}`,
           `Notes: ${notes || "—"}`,
           `Attribution: ${JSON.stringify(lead.attribution)}`,

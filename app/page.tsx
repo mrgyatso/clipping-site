@@ -4,16 +4,16 @@ import { Footer, Header } from "@/components/site-shell";
 import { faqs, processProof } from "@/data/site";
 
 const deliverables = [
-  ["25%", "paid before campaign launch"],
-  ["75%", "paid at verified completion"],
-  ["$1,000", "maximum campaign price"],
+  ["$4", "per 1,000 verified views"],
+  ["$1,000", "minimum campaign budget"],
+  ["250K", "verified views at the minimum"],
 ] as const;
 
 const valueFlow = [
   {
     label: "Client",
-    title: "Content + $250",
-    body: "You supply campaign-ready footage and fund the launch.",
+    title: "Content + budget",
+    body: "You supply campaign-ready footage and set the budget.",
   },
   {
     label: "ClipWave",
@@ -26,9 +26,9 @@ const valueFlow = [
     body: "The network publishes approved clips from creator accounts.",
   },
   {
-    label: "Completion",
-    title: "250K verified views",
-    body: "At the target, the campaign closes and the final $750 is due.",
+    label: "Delivery",
+    title: "Views land, then you pay",
+    body: "We invoice the verified views we actually delivered. Miss the target, no invoice.",
   },
 ] as const;
 
@@ -36,12 +36,12 @@ const steps = [
   {
     number: "01",
     title: "We qualify the source",
-    body: "You share the footage, goal, and constraints. We confirm that the material can support the 250K verified-view campaign.",
+    body: "You share the footage, goal, and constraints. We confirm that the material can support the view target your budget buys.",
   },
   {
     number: "02",
-    title: "You fund the launch",
-    body: "The first $250 secures campaign setup. We agree on clip direction, brand boundaries, platforms, and approval criteria.",
+    title: "We set the target",
+    body: "Your budget sets the guaranteed target at $4 per 1,000 verified views. We agree on clip direction, brand boundaries, platforms, and approval criteria.",
   },
   {
     number: "03",
@@ -50,8 +50,8 @@ const steps = [
   },
   {
     number: "04",
-    title: "We close at 250K",
-    body: "We capture the native public counts, deliver the campaign record, and invoice the final $750 when valid verified views reach 250K.",
+    title: "We count, then invoice",
+    body: "We capture the native public counts, deliver the campaign record, and invoice only the valid verified views delivered. Nothing landed, nothing billed.",
   },
 ] as const;
 
@@ -68,8 +68,8 @@ export default function Home() {
             <p>
               Build a distribution army around every stream. ClipWave mobilizes
               clippers to create and publish as many posts as your campaign
-              needs—and keeps the campaign moving until it reaches 250,000
-              verified views.
+              needs—and keeps the campaign moving until it hits the verified-view
+              target your budget buys.
             </p>
             <p className="hero-mechanism">
               <strong>Editors deliver files.</strong> We manage the creators who
@@ -88,18 +88,18 @@ export default function Home() {
               </Link>
             </div>
             <p className="microcopy">
-              $250 launches the campaign. The final $750 is due when approved
-              posts reach 250K valid verified views.
+              $4 per 1,000 verified views, $1,000 minimum budget. You only pay
+              for the views we actually deliver.
             </p>
           </div>
           <div className="hero-panel" aria-label="Campaign guarantee overview">
-            <span className="panel-label">Campaign / target-led</span>
+            <span className="panel-label">Campaign / performance-based</span>
             <strong>250K</strong>
-            <span>verified views before the campaign closes</span>
+            <span>verified views for a $1,000 budget</span>
             <div className="panel-rule" />
             <p>
-              Flexible post volume. Native public verification. $1,000 total
-              campaign cap.
+              Flexible post volume. Native public verification. Larger budgets
+              buy proportionally more at the same rate.
             </p>
           </div>
         </section>
@@ -140,7 +140,7 @@ export default function Home() {
               <ul className="check-list">
                 <li>Source-content and campaign-fit review</li>
                 <li>Written creative and posting brief</li>
-                <li>A fixed 250K verified-view target</li>
+                <li>A guaranteed verified-view target set by your budget</li>
                 <li>Clipper coordination during the campaign</li>
                 <li>Review against agreed approval criteria</li>
                 <li>As many approved posts as the campaign needs</li>
@@ -149,12 +149,13 @@ export default function Home() {
             </article>
             <article className="outline-card">
               <span className="kicker">Scope note</span>
-              <h3>One target. One campaign cap.</h3>
+              <h3>You only pay for views that land.</h3>
               <p>
-                The $250 launch payment covers source review, briefing, routing,
-                and management. The remaining $750 is due at 250K valid verified
-                views. If the campaign ends early under the signed terms, only
-                that completion balance is prorated to delivered views.
+                Campaigns are priced at $4 per 1,000 valid verified views, with a
+                $1,000 minimum budget—250,000 views at the minimum. Larger budgets
+                buy proportionally more views at the same rate, with no cap. We
+                invoice the verified views actually delivered, so if we miss the
+                target you are not billed for what did not land.
               </p>
             </article>
           </div>
@@ -216,7 +217,7 @@ export default function Home() {
                 <li>Your primary source-content link</li>
                 <li>Your primary campaign goal</li>
                 <li>Brand, rights, or compliance constraints</li>
-                <li>Confirmation that the $250 launch payment is ready</li>
+                <li>Your campaign budget ($1,000 minimum)</li>
               </ul>
             </div>
           </div>
@@ -235,8 +236,9 @@ export default function Home() {
               <span>It is</span>
               <h3>A verified distribution target</h3>
               <p>
-                Approved campaign posts run toward 250K views measured from
-                native public platform counters when the campaign closes.
+                Approved campaign posts run toward the view target your budget
+                buys, measured from native public platform counters when the
+                campaign closes.
               </p>
             </article>
             <article>

@@ -33,17 +33,21 @@ export default function TermsPage() {
           </p>
           <h2>Campaign pricing</h2>
           <p>
-            An accepted campaign has a maximum price of $1,000. The client pays
-            a nonrefundable $250 launch payment before work begins. The remaining
-            $750 becomes due when the campaign reaches 250,000 valid verified
-            views, subject to the separately accepted campaign agreement.
+            Campaigns are priced at $4 per 1,000 valid verified views, subject to
+            a $1,000 minimum campaign budget. The budget sets the verified-view
+            target for the campaign; a larger budget buys proportionally more
+            views at the same rate. Charges are based on valid verified views
+            actually delivered, subject to the separately accepted campaign
+            agreement.
           </p>
-          <h2>Verified-view guarantee</h2>
+          <h2>Verified-view target</h2>
           <p>
-            The 250,000-view commitment applies only when it appears in an
-            accepted campaign agreement. The campaign begins when its first
-            approved post goes live and continues without an automatic time
-            cutoff until it reaches the target or ends early under that agreement.
+            The verified-view target applies only when it appears in an accepted
+            campaign agreement. The campaign begins when its first approved post
+            goes live and continues without an automatic time cutoff until it
+            reaches the target or ends early under that agreement. If the target
+            is not met, the client is invoiced only for the valid verified views
+            delivered.
           </p>
           <p>
             Verified views are the native public view counts captured at the
@@ -61,9 +65,9 @@ export default function TermsPage() {
             campaign by mutual written agreement.
           </p>
           <p>
-            On an eligible early termination, the final performance invoice is
-            calculated as $750 × valid verified views ÷ 250,000 and is capped at
-            $750. The initial $250 launch payment remains nonrefundable. The
+            On an eligible early termination, the final invoice is calculated at
+            $4 per 1,000 valid verified views delivered up to the closing
+            measurement, and does not exceed the agreed campaign budget. The
             accepted campaign agreement controls termination eligibility,
             measurement timing, payment timing, and any additional exclusions.
           </p>
@@ -71,10 +75,11 @@ export default function TermsPage() {
           <p>
             ClipWave may publish as many approved posts as the campaign needs
             within the source-content limits and campaign brief. Total campaign
-            charges do not exceed $1,000, and views beyond 250,000 do not create
-            an additional charge without a separate written agreement. The
-            commitment covers only verified views; it does not guarantee sales, revenue, followers,
-            engagement, conversions, or a specific post becoming viral.
+            charges do not exceed the agreed campaign budget, and views beyond
+            the agreed target do not create an additional charge without a
+            separate written agreement. The commitment covers only verified
+            views; it does not guarantee sales, revenue, followers, engagement,
+            conversions, or a specific post becoming viral.
           </p>
           <h2>Your content</h2>
           <p>

@@ -56,7 +56,7 @@ export type CampaignCaseStudy = {
 export const siteConfig = {
   name: "ClipWave",
   description:
-    "A $1,000 distribution campaign that runs until approved posts reach 250,000 verified views.",
+    "Performance-based short-form distribution. We guarantee a verified-view target for your budget at $4 per 1,000 views—and you only pay for the views we deliver.",
   bookingDuration: "30 minutes",
   calLink: process.env.NEXT_PUBLIC_CAL_LINK ?? "zack-woods-si9bra/30min",
   whopUrl: process.env.NEXT_PUBLIC_WHOP_URL ?? "#",
@@ -84,30 +84,30 @@ export const processProof = [
   },
   {
     title: "A delivery record",
-    body: "You receive a campaign-level record of approved posts, public platform counts, the closing measurement, and verified views toward 250K.",
+    body: "You receive a campaign-level record of approved posts, public platform counts, the closing measurement, and verified views delivered against your target.",
   },
 ] as const;
 
 export const faqs = [
   {
-    question: "What is included in the pilot?",
+    question: "What is included in a campaign?",
     answer:
-      "Source review, campaign launch, a written brief, clipper coordination, flexible approved post volume, and public view tracking. The campaign continues until approved posts reach 250,000 valid verified views unless it ends early under the signed terms.",
+      "Source review, campaign launch, a written brief, clipper coordination, flexible approved post volume, and public view tracking. The campaign keeps running toward the verified-view target your budget buys.",
   },
   {
     question: "Do you guarantee views?",
     answer:
-      "For an accepted campaign, the target is 250,000 valid verified views. You pay $250 to launch and the $750 completion balance when the target is reached. If the campaign ends early under the signed terms, only that $750 balance is prorated to valid views delivered.",
+      "We agree a verified-view target for your budget before launch and run the campaign toward it. You are invoiced only for the valid verified views actually delivered, so if we miss the target you are not billed for what did not land.",
   },
   {
-    question: "How does the $1,000 campaign price work?",
+    question: "How does pricing work?",
     answer:
-      "$250 is paid before launch for source review, briefing, routing, and campaign management. The remaining $750 is due when approved campaign posts reach 250,000 valid verified views. Total charges are capped at $1,000.",
+      "Campaigns are priced at $4 per 1,000 valid verified views, with a $1,000 minimum budget—250,000 views at that minimum. It is a rate, not a fixed package: a larger budget buys proportionally more views at the same $4 per 1,000, with no cap.",
   },
   {
     question: "How are verified views counted?",
     answer:
-      "We sum native public view counters on approved, recorded campaign posts when the campaign reaches 250K or ends early. Removed, private, duplicate, paid or promoted, fraudulent, and otherwise invalid views or posts do not count.",
+      "We sum native public view counters on approved, recorded campaign posts when the campaign closes. Removed, private, duplicate, paid or promoted, fraudulent, and otherwise invalid views or posts do not count.",
   },
   {
     question: "What source content works best?",

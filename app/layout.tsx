@@ -41,7 +41,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "250K Verified-View Campaign | ClipWave",
+    default: "Guaranteed Verified Views | ClipWave",
     template: "%s | ClipWave",
   },
   description: siteConfig.description,
@@ -49,13 +49,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
-    title: "250K Verified-View Campaign | ClipWave",
+    title: "Guaranteed Verified Views | ClipWave",
     description: siteConfig.description,
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "250K Verified-View Campaign | ClipWave",
+    title: "Guaranteed Verified Views | ClipWave",
     description: siteConfig.description,
   },
 };
@@ -74,10 +74,15 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${dmSans.variable} ${newsreader.variable} ${spaceMono.variable} ${instrumentSerif.variable} ${dmSans.className}`}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add("js")`,
+          }}
+        />
         <Analytics />
         <script
           type="application/ld+json"
