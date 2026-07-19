@@ -12,6 +12,8 @@
 # data/clips.generated.json. The carousel picks it up automatically.
 #
 # Clips already downloaded are skipped, so re-running is cheap. Use
-# `npm run clips -- --refresh` to re-read view counts for everything.
+# `npm run clips -- --refresh` to re-read view counts for everything, and
+# `npm run clips -- --fill=24` to repeat what is here until the wall holds 24
+# cards — handy for judging the marquee before there are enough real links.
 
-https://www.tiktok.com/@tiktok/video/7663622615168306462
+https://www.tiktok.com/@jul.spamz.fr/video/7608248907960814879

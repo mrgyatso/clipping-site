@@ -34,6 +34,12 @@ const CONCURRENCY = 4;
 
 const refresh = process.argv.includes("--refresh");
 
+// Testing aid: repeat the fetched clips until the wall holds this many cards, so
+// the marquee can be judged at length before there are real links to fill it.
+// Repeats reuse the same media — they cost nothing extra on disk.
+const fillArg = process.argv.find((arg) => arg.startsWith("--fill="));
+const fillTo = fillArg ? Number(fillArg.split("=")[1]) : 0;
+
 function platformOf(url) {
   if (/tiktok\.com/i.test(url)) return "tiktok";
   if (/youtube\.com|youtu\.be/i.test(url)) return "yt";
@@ -41,7 +47,8 @@ function platformOf(url) {
   return "tiktok";
 }
 
-// 81300 -> "81.3K". Trailing ".0" reads like a typo, so drop it.
+// 81400 -> "81.4K". Always keep the tenth: rounding 166.6M to "167M" would state
+// a bigger number than the post actually has. Trailing ".0" reads like a typo.
 function formatViews(count) {
   if (typeof count !== "number" || !Number.isFinite(count)) return null;
   const units = [
@@ -51,9 +58,9 @@ function formatViews(count) {
   ];
   for (const [size, suffix] of units) {
     if (count >= size) {
-      const scaled = count / size;
-      const text = scaled >= 100 ? Math.round(scaled) : scaled.toFixed(1);
-      return `${text.replace(/\.0$/, "")}${suffix}`;
+      // Truncate rather than round, so the badge never overstates the post.
+      const scaled = Math.floor((count / size) * 10) / 10;
+      return `${scaled.toFixed(1).replace(/\.0$/, "")}${suffix}`;
     }
   }
   return String(count);
@@ -226,10 +233,21 @@ async function main() {
   });
 
   const kept = clips.filter(Boolean);
-  await writeFile(MANIFEST_FILE, `${JSON.stringify(kept, null, 2)}\n`);
+
+  // Each repeat needs its own id, or React sees duplicate keys in the wall.
+  const output = [...kept];
+  if (fillTo > kept.length && kept.length > 0) {
+    for (let index = kept.length; index < fillTo; index += 1) {
+      const source = kept[index % kept.length];
+      output.push({ ...source, id: `${source.id}-fill${index}` });
+    }
+    console.log(`Filled to ${output.length} cards for testing (--fill).`);
+  }
+
+  await writeFile(MANIFEST_FILE, `${JSON.stringify(output, null, 2)}\n`);
   await rm(WORK_DIR, { recursive: true, force: true });
 
-  console.log(`\nWrote ${kept.length} clip(s) to data/clips.generated.json`);
+  console.log(`\nWrote ${output.length} clip(s) to data/clips.generated.json`);
   if (failures.length > 0) {
     console.log(`${failures.length} link(s) skipped — see the warnings above.`);
   }
