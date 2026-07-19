@@ -38,21 +38,47 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
   outline-offset: 3px;
 }
 
+/* Floating glass pill nav — sits over the hero rather than banding across it. */
 .site-header {
-  position: sticky;
-  z-index: 20;
-  top: 0;
-  padding: .8rem 1rem;
-  background: rgba(245, 240, 228, .92);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(17, 16, 14, .15);
+  position: fixed;
+  z-index: 100;
+  top: 14px;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
 }
 .nav {
   display: flex;
-  max-width: 1180px;
+  max-width: 1060px;
+  width: 100%;
   align-items: center;
-  gap: 2rem;
-  margin: auto;
+  gap: .6rem;
+  padding: .45rem .5rem .45rem .7rem;
+  border: 1.5px solid rgba(255, 255, 255, .9);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .78);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, .35),
+    0 18px 44px -18px rgba(17, 16, 14, .38),
+    inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+/* Inside the pill everything goes round, so the shape reads as one object. */
+.nav .button { min-height: 38px; border-radius: 999px; padding: .5rem 1rem; font-size: .72rem; }
+.nav .nav-links a { padding: .45rem .7rem; border-radius: 999px; transition: color .2s, background .2s; }
+.nav .nav-links a:hover { background: rgba(17, 16, 14, .06); }
+/* The hard offset shadow belongs to the editorial sections, not inside the pill. */
+.nav .button:hover { transform: none; }
+.nav .button.primary { box-shadow: 0 6px 16px -6px rgba(240, 90, 40, .75); }
+.nav .button.primary:hover { box-shadow: 0 9px 22px -6px rgba(240, 90, 40, .9); }
+.nav .button.secondary { border-color: rgba(17, 16, 14, .22); }
+.nav .button.secondary:hover { border-color: var(--ink); }
+@media (max-width: 880px) {
+  .nav { width: fit-content; gap: .8rem; }
+  .nav .nav-links { display: none; }
 }
 .logo { display: inline-flex; align-items: center; gap: .65rem; font-weight: 900; }
 .logo-mark {
@@ -332,7 +358,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 .page-intro { padding: clamp(7rem, 12vw, 11rem) max(1.5rem, calc((100vw - 1180px) / 2)) 6rem; background: var(--ink); color: var(--paper-light); }
 .page-intro h1 { max-width: 950px; }
 .page-intro p { max-width: 720px; color: #d0c7ba; font-size: 1.1rem; line-height: 1.7; }
-.content-page { max-width: 940px; margin: auto; padding: 5rem 1.5rem 8rem; }
+.content-page { max-width: 940px; margin: auto; padding: 8rem 1.5rem 8rem; }
 .content-page h2 { margin: 2.7rem 0 .8rem; font-family: var(--font-display); font-size: 2.35rem; font-weight: 520; }
 .content-page h3 { margin: 1.7rem 0 .5rem; }
 .content-page p, .content-page li { color: var(--muted); font-size: 1.05rem; line-height: 1.8; }
@@ -352,7 +378,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 
 .clipper-landing {
   display: grid;
-  min-height: calc(100vh - 77px);
+  min-height: 100vh;
   place-items: center;
   padding: clamp(6rem, 10vw, 9rem) 1.5rem;
   background:
