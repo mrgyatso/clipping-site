@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ClipWall } from "@/components/clip-wall";
 import { LeadForm, RevealManager, TrackedLink } from "@/components/interactive";
 import { Footer, Header } from "@/components/site-shell";
 import { faqs, processProof } from "@/data/site";
@@ -183,6 +184,55 @@ export default function Home() {
             <Link className="button secondary" href="/case-studies">
               View evidence standard <span aria-hidden="true">↗</span>
             </Link>
+          </div>
+        </section>
+
+        <section className="clips section" id="clips" aria-labelledby="clips-heading">
+          <div className="section-heading reveal">
+            <span className="kicker">Real clips · Real views</span>
+            <h2 id="clips-heading">Clips we&rsquo;ve put in front of millions.</h2>
+            <p>
+              A wall of real short-form we&rsquo;ve distributed for partners across
+              every platform. Hover any clip to play it.
+            </p>
+          </div>
+          <div className="clip-platforms reveal" aria-label="Platforms we distribute on">
+            <span className="cp tiktok" title="TikTok">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M16.5 3c.3 2 1.7 3.6 3.7 3.9v2.8c-1.4.1-2.7-.3-3.9-1v5.6a5.7 5.7 0 11-5.7-5.7c.3 0 .6 0 .9.1v2.9a2.8 2.8 0 102 2.7V3z" fill="currentColor" />
+              </svg>
+            </span>
+            <span className="cp yt" title="YouTube Shorts">
+              <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+                <rect x="3" y="6" width="18" height="12" rx="4" fill="currentColor" />
+                <path d="M10 9.2l5 2.8-5 2.8z" fill="#fff" />
+              </svg>
+            </span>
+            <span className="cp ig" title="Instagram Reels">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                <circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                <circle cx="17" cy="7" r="1.1" fill="currentColor" />
+              </svg>
+            </span>
+            <span className="cp x" title="X">
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+                <path d="M3 3l7.5 9.7L3.4 21H6l5.5-6.4L16.3 21H21l-7.9-10.2L20.4 3H18l-5 5.9L8.4 3z" fill="currentColor" />
+              </svg>
+            </span>
+          </div>
+          <ClipWall />
+          <div className="clip-cta reveal">
+            <TrackedLink
+              className="button primary"
+              href="#qualification"
+              event="clips_cta_click"
+            >
+              Build my distribution army <span aria-hidden="true">↗</span>
+            </TrackedLink>
+            <span className="clip-note">
+              Want your campaign here? These are placeholder clips&mdash;send us yours.
+            </span>
           </div>
         </section>
 

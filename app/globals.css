@@ -421,7 +421,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 .community-link b { font-size: 1.4rem; }
 .community-note { margin-top: 1.5rem; color: #aaa195; font-size: .82rem; }
 /* Scoped to .js so content stays visible if JavaScript never runs. */
-.js .reveal { opacity: 0; transform: translateY(12px); transition: opacity .55s ease, transform .55s ease; }
+.js .reveal { opacity: 0; transform: translateY(12px); transition: opacity .3s ease, transform .3s ease; }
 .js .reveal.in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -470,3 +470,70 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
   .community-mark svg { width: 34px; height: 34px; }
   .footer-bottom { flex-direction: column; }
 }
+
+/* ═══════════════ CLIPS WALL ═══════════════ */
+.clips { text-align: center; }
+.clip-platforms { display: flex; justify-content: center; gap: .7rem; margin-top: 1.6rem; }
+.clip-platforms .cp {
+  width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--paper-light); color: var(--ink);
+  box-shadow: var(--shadow); border: 1px solid var(--line);
+  transition: transform .25s cubic-bezier(.16,1,.3,1), color .25s;
+}
+.clip-platforms .cp:hover { transform: translateY(-3px); }
+.clip-platforms .tiktok:hover { color: #000; }
+.clip-platforms .yt:hover { color: #ff0033; }
+.clip-platforms .ig:hover { color: #d6249f; }
+.clip-platforms .x:hover { color: #000; }
+
+.clip-marquee {
+  margin-top: 2.6rem; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.clip-track { display: flex; gap: 1.1rem; width: max-content; animation: clipMarquee 70s linear infinite; }
+.clip-marquee:hover .clip-track { animation-play-state: paused; }
+@keyframes clipMarquee { to { transform: translateX(-50%); } }
+
+.clip-card { width: 202px; flex: 0 0 auto; text-decoration: none; display: block; }
+.clip-frame {
+  position: relative; aspect-ratio: 9 / 16; border-radius: 20px; overflow: hidden;
+  background: var(--ink); box-shadow: var(--shadow);
+  transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s cubic-bezier(.16,1,.3,1);
+}
+.clip-card:hover .clip-frame { transform: translateY(-6px); box-shadow: 0 18px 44px -18px rgba(23,26,31,.55); }
+.clip-vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.clip-views {
+  position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 2;
+  background: var(--orange); color: #2a1206; font-size: .66rem; font-weight: 800;
+  letter-spacing: .01em; padding: .3rem .6rem; border-radius: 999px; white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(23,26,31,.22);
+}
+.clip-plat {
+  position: absolute; bottom: 10px; right: 10px; z-index: 2;
+  width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(23,26,31,.55); color: #fff; backdrop-filter: blur(6px);
+}
+.clip-plat svg { width: 15px; height: 15px; fill: currentColor; }
+.clip-play {
+  position: absolute; inset: 0; margin: auto; z-index: 2;
+  width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(255,255,255,.9); color: var(--ink);
+  box-shadow: 0 6px 18px rgba(23,26,31,.28); pointer-events: none;
+  transition: opacity .3s cubic-bezier(.16,1,.3,1), transform .3s cubic-bezier(.16,1,.3,1);
+}
+.clip-frame:hover .clip-play { opacity: 0; transform: scale(.82); }
+
+.clip-who { display: flex; align-items: center; gap: .55rem; margin-top: .7rem; padding-left: .15rem; }
+.clip-av {
+  width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; flex: 0 0 auto;
+  color: #fff; font-size: .7rem; font-weight: 800;
+  background: linear-gradient(160deg, var(--orange-light), var(--orange));
+}
+.clip-name { font-size: .78rem; font-weight: 600; color: var(--ink); text-align: left; }
+
+.clip-cta { display: flex; flex-direction: column; align-items: center; gap: .8rem; margin-top: 3rem; }
+.clip-note { font-size: .76rem; color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) { .clip-track { animation: none; } }
+@media (max-width: 640px) { .clip-card { width: 164px; } .clip-track { gap: .8rem; } }

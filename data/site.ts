@@ -66,12 +66,34 @@ export const siteConfig = {
 export const navigation = [
   { label: "Pilot", href: "/#pilot" },
   { label: "Process", href: "/#process" },
+  { label: "Clips", href: "/#clips" },
   { label: "Case studies", href: "/case-studies" },
 ] as const;
 
 // Add only verified, anonymized campaign records. The public pages intentionally
 // show process proof until real campaign datasets are supplied.
 export const caseStudies: CampaignCaseStudy[] = [];
+
+export type ClipWallItem = {
+  src: string;
+  poster: string;
+  handle: string;
+  views: string;
+  platform: "tiktok" | "yt" | "ig";
+  // Set once the clip is live so the card links to the real post.
+  href?: string;
+};
+
+// Placeholder clips so the wall ships populated. Replace src/poster with real
+// campaign footage and set href to the live post before publishing view counts.
+export const clipWall: ClipWallItem[] = [
+  { src: "/media/clips/clip1.mp4", poster: "/media/posters/clip1.jpg", handle: "Podcast Clip", views: "2.4M", platform: "tiktok" },
+  { src: "/media/clips/clip2.mp4", poster: "/media/posters/clip2.jpg", handle: "Artist Drop", views: "5.1M", platform: "yt" },
+  { src: "/media/clips/clip3.mp4", poster: "/media/posters/clip3.jpg", handle: "Product Launch", views: "880K", platform: "ig" },
+  { src: "/media/clips/clip4.mp4", poster: "/media/posters/clip4.jpg", handle: "Creator POV", views: "3.2M", platform: "tiktok" },
+  { src: "/media/clips/clip5.mp4", poster: "/media/posters/clip5.jpg", handle: "Founder Story", views: "1.1M", platform: "yt" },
+  { src: "/media/clips/clip6.mp4", poster: "/media/posters/clip6.jpg", handle: "Sports Edit", views: "6.7M", platform: "ig" },
+];
 
 export const processProof = [
   {
