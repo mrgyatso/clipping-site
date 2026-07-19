@@ -2,6 +2,7 @@
 
 import Script from "next/script";
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { useChosenBudgetRange } from "@/components/budget-slider";
 import { siteConfig } from "@/data/site";
 
 declare global {
@@ -120,6 +121,11 @@ const initialFields = {
 
 export function LeadForm() {
   const [fields, setFields] = useState(initialFields);
+  // Whatever they settled on in the hero slider seeds this, so they are not
+  // asked for a budget they just chose. It is only a default — the moment they
+  // pick in the form, their choice wins.
+  const heroBudgetRange = useChosenBudgetRange();
+  const budgetRange = fields.budgetRange || heroBudgetRange;
   const [startedAt, setStartedAt] = useState(() => Date.now());
   const [started, setStarted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -151,6 +157,9 @@ export function LeadForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...fields,
+          // Send what the form is actually showing, which may be the value
+          // seeded by the hero slider rather than one typed here.
+          budgetRange,
           startedAt,
           attribution: {
             source: search.get("utm_source") || undefined,
@@ -270,7 +279,7 @@ export function LeadForm() {
         <SelectField
           label="Campaign budget"
           name="budgetRange"
-          value={fields.budgetRange}
+          value={budgetRange}
           update={update}
           options={[
             ["under_1000", "Under $1,000"],

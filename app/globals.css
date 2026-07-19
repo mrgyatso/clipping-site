@@ -202,6 +202,71 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 .panel-rule { height: 1px; margin: 2rem 0 1rem; background: rgba(255, 250, 240, .25); }
 .hero-panel p { color: var(--on-ink); font-size: .96rem; line-height: 1.65; }
 
+/* Budget slider — a hand-rolled range input rather than a component library, so
+   it inherits the palette tokens and themes along with everything else. */
+.budget-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  margin-top: 1.8rem;
+}
+.budget-head label { color: var(--on-ink); font-size: .92rem; }
+.budget-head output {
+  color: var(--paper-light); font-family: var(--font-mono);
+  font-size: 1.35rem; font-weight: 700; letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+}
+.budget-range {
+  -webkit-appearance: none; appearance: none;
+  display: block; width: 100%; margin-top: .9rem;
+  background: transparent; cursor: pointer;
+}
+.budget-range:focus { outline: none; }
+/* The filled portion is a gradient stop driven by --progress, which the
+   component sets inline — one property, no second element to keep in sync. */
+.budget-range::-webkit-slider-runnable-track {
+  height: 5px; border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--orange) var(--progress, 0%),
+    rgba(255, 250, 240, .18) var(--progress, 0%)
+  );
+}
+.budget-range::-moz-range-track {
+  height: 5px; border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--orange) var(--progress, 0%),
+    rgba(255, 250, 240, .18) var(--progress, 0%)
+  );
+}
+.budget-range::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 21px; height: 21px; margin-top: -8px;
+  border: 2.5px solid var(--orange); border-radius: 50%;
+  background: var(--paper-light);
+  transition: transform .15s, box-shadow .15s;
+}
+.budget-range::-moz-range-thumb {
+  width: 21px; height: 21px;
+  border: 2.5px solid var(--orange); border-radius: 50%;
+  background: var(--paper-light);
+  transition: transform .15s, box-shadow .15s;
+}
+.budget-range:hover::-webkit-slider-thumb { transform: scale(1.1); }
+.budget-range:hover::-moz-range-thumb { transform: scale(1.1); }
+.budget-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--orange) 40%, transparent);
+}
+.budget-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--orange) 40%, transparent);
+}
+.budget-scale {
+  display: flex; justify-content: space-between; margin-top: .7rem;
+  color: var(--on-ink-dim); font-family: var(--font-mono);
+  font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+}
+/* Dragging must not reflow the panel, so the figure holds a fixed line box. */
+.hero-panel strong { min-height: .8em; }
+
 .section { max-width: 1180px; margin: auto; padding: clamp(5rem, 9vw, 9rem) 1.5rem; }
 .section-heading { max-width: 760px; margin: 0 auto 3.5rem; text-align: center; }
 .section-heading.left { margin-left: 0; text-align: left; }

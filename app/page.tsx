@@ -1,13 +1,23 @@
 import Link from "next/link";
+import { BudgetSlider } from "@/components/budget-slider";
 import { ClipWall } from "@/components/clip-wall";
 import { LeadForm, RevealManager, TrackedLink } from "@/components/interactive";
 import { Footer, Header } from "@/components/site-shell";
 import { faqs, processProof } from "@/data/site";
+import {
+  MIN_BUDGET,
+  RATE_PER_1K,
+  formatBudget,
+  formatViews,
+  viewsForBudget,
+} from "@/data/pricing";
 
+// Derived from the rate rather than typed, so these can never contradict the
+// slider sitting a few hundred pixels above them.
 const deliverables = [
-  ["$4", "per 1,000 verified views"],
-  ["$1,000", "minimum campaign budget"],
-  ["250K", "verified views at the minimum"],
+  [`$${RATE_PER_1K}`, "per 1,000 verified views"],
+  [formatBudget(MIN_BUDGET), "minimum campaign budget"],
+  [formatViews(viewsForBudget(MIN_BUDGET)), "verified views at the minimum"],
 ] as const;
 
 const valueFlow = [
@@ -93,16 +103,7 @@ export default function Home() {
               for the views we actually deliver.
             </p>
           </div>
-          <div className="hero-panel" aria-label="Campaign guarantee overview">
-            <span className="panel-label">Campaign / performance-based</span>
-            <strong>250K</strong>
-            <span>verified views for a $1,000 budget</span>
-            <div className="panel-rule" />
-            <p>
-              Flexible post volume. Native public verification. Larger budgets
-              buy proportionally more at the same rate.
-            </p>
-          </div>
+          <BudgetSlider />
         </section>
 
         <section className="pilot section" id="pilot">
