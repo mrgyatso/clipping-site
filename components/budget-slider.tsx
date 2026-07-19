@@ -82,9 +82,9 @@ export function BudgetSlider() {
       <span>verified views</span>
 
       <div className="panel-rule" />
-      <p>
-        ${RATE_PER_1K} per 1,000 &middot; billed on views actually delivered.
-      </p>
+      {/* One expression rather than text-plus-expression: JSX drops the space
+          after a closing brace here, which rendered "$4per 1,000". */}
+      <p>{`$${RATE_PER_1K} per 1,000 · billed on views actually delivered.`}</p>
     </div>
   );
 }
