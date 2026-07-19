@@ -6,6 +6,7 @@ import {
   Space_Mono,
 } from "next/font/google";
 import { Analytics } from "@/components/interactive";
+import { PaletteSwitcher } from "@/components/palette-switcher";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
@@ -83,7 +84,11 @@ export default function RootLayout({
             // Hiding .reveal content is safe only while something is guaranteed to
             // un-hide it. RevealManager clears this timer once its observer is live;
             // if it never mounts, everything still becomes visible.
+            // Restoring the palette here rather than in the switcher's effect
+            // means a chosen theme paints on the first frame instead of flashing
+            // the default first.
             __html: `document.documentElement.classList.add("js");
+try{var p=localStorage.getItem("clipwave-palette");if(p)document.documentElement.dataset.palette=p}catch(e){}
 window.__revealFailsafe=setTimeout(function(){var e=document.querySelectorAll(".reveal");for(var i=0;i<e.length;i++)e[i].classList.add("in")},900)`,
           }}
         />
@@ -93,6 +98,7 @@ window.__revealFailsafe=setTimeout(function(){var e=document.querySelectorAll(".
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
         />
         {children}
+        <PaletteSwitcher />
       </body>
     </html>
   );
