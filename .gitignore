@@ -3,3 +3,6 @@
 node_modules
 npm-debug.log*
 *.tsbuildinfo
+
+# clip pipeline scratch space
+.clip-cache

@@ -1,0 +1,17 @@
+# Clips shown in the wall on the homepage.
+#
+# One URL per line. TikTok, YouTube Shorts, and Instagram Reels all work.
+# Lines starting with # are ignored, so you can group and label them.
+#
+# After editing this file, run:
+#
+#     npm run clips
+#
+# That downloads each post, builds a small muted preview plus a poster image,
+# reads the real view count off the live post, and rewrites
+# data/clips.generated.json. The carousel picks it up automatically.
+#
+# Clips already downloaded are skipped, so re-running is cheap. Use
+# `npm run clips -- --refresh` to re-read view counts for everything.
+
+https://www.tiktok.com/@tiktok/video/7663622615168306462

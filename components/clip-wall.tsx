@@ -30,6 +30,11 @@ const PLATFORM_LABEL: Record<string, string> = {
   ig: "Instagram Reels",
 };
 
+// Card width plus the flex gap, used to hold the marquee at a constant speed no
+// matter how many clips the manifest carries.
+const CARD_STRIDE_PX = 220;
+const MARQUEE_PX_PER_SECOND = 19;
+
 export function ClipWall() {
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -41,8 +46,8 @@ export function ClipWall() {
 
     const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Only fetch a clip once it is on screen, and never leave one playing off screen.
-    const observer = new IntersectionObserver(
+    // Fetch a clip only once it is on screen, and never leave one playing off it.
+    const playObserver = new IntersectionObserver(
       (entries) =>
         entries.forEach((entry) => {
           const video = entry.target as HTMLVideoElement;
@@ -56,27 +61,83 @@ export function ClipWall() {
       { threshold: 0.2 },
     );
 
-    videos.forEach((video) => observer.observe(video));
-    return () => observer.disconnect();
+    // With a hundred clips in the track, paused-but-loaded video piles up in
+    // memory. Once a clip is well out of range, drop its buffer; the observer
+    // above re-fetches it if the marquee brings it back around.
+    const unloadObserver = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) return;
+          const video = entry.target as HTMLVideoElement;
+          if (!video.src) return;
+          video.pause();
+          video.removeAttribute("src");
+          video.load();
+        }),
+      { rootMargin: "100% 200%" },
+    );
+
+    videos.forEach((video) => {
+      playObserver.observe(video);
+      unloadObserver.observe(video);
+    });
+    return () => {
+      playObserver.disconnect();
+      unloadObserver.disconnect();
+    };
   }, []);
+
+  // Nothing verified yet? Show nothing rather than inventing a wall of clips.
+  if (clipWall.length === 0) return null;
 
   // The track is rendered twice so the marquee can loop without a visible seam.
   const looped = [...clipWall, ...clipWall];
+  const duration = Math.round(
+    (clipWall.length * CARD_STRIDE_PX) / MARQUEE_PX_PER_SECOND,
+  );
 
   return (
     <div className="clip-marquee reveal">
-      <div className="clip-track" ref={trackRef}>
+      <div
+        className="clip-track"
+        ref={trackRef}
+        style={{ "--clip-duration": `${duration}s` } as React.CSSProperties}
+      >
         {looped.map((clip, index) => {
-          const card = (
-            <>
+          const isDuplicate = index >= clipWall.length;
+          return (
+            <a
+              className="clip-card"
+              key={`${clip.id}-${index}`}
+              href={clip.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-hidden={isDuplicate}
+              tabIndex={isDuplicate ? -1 : undefined}
+            >
               <div className="clip-frame">
                 <span className="clip-views">{clip.views} views</span>
                 <span className={`clip-plat cp-${clip.platform}`}>
                   {PLATFORM_ICON[clip.platform]}
                 </span>
+                {/* A native lazy image rather than the video's poster attribute:
+                    browsers fetch poster eagerly, which at this many cards would
+                    pull every thumbnail on first paint. Plain <img> rather than
+                    next/image because ffmpeg already emits these at exactly 2x
+                    the card width — next/image would re-optimise a correctly
+                    sized file and bill a transformation for every clip. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  className="clip-poster"
+                  src={clip.poster}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  width={404}
+                  height={718}
+                />
                 <video
                   className="clip-vid"
-                  poster={clip.poster}
                   data-src={clip.src}
                   muted
                   loop
@@ -92,33 +153,12 @@ export function ClipWall() {
                 </span>
               </div>
               <div className="clip-who">
-                <span className={`clip-av cp-${clip.platform}`}>{clip.handle[0]}</span>
+                <span className={`clip-av cp-${clip.platform}`}>
+                  {clip.handle.replace("@", "")[0]}
+                </span>
                 <span className="clip-name">{clip.handle}</span>
               </div>
-            </>
-          );
-
-          // Cards link out to the live post once a real URL is supplied.
-          return clip.href ? (
-            <a
-              className="clip-card"
-              key={`${clip.src}-${index}`}
-              href={clip.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-hidden={index >= clipWall.length}
-              tabIndex={index >= clipWall.length ? -1 : undefined}
-            >
-              {card}
             </a>
-          ) : (
-            <article
-              className="clip-card"
-              key={`${clip.src}-${index}`}
-              aria-hidden={index >= clipWall.length}
-            >
-              {card}
-            </article>
           );
         })}
       </div>

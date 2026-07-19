@@ -1,3 +1,5 @@
+import clipsGenerated from "./clips.generated.json";
+
 export type LeadClassification = "qualified" | "manual_review";
 
 export type CampaignGoal =
@@ -75,25 +77,20 @@ export const navigation = [
 export const caseStudies: CampaignCaseStudy[] = [];
 
 export type ClipWallItem = {
+  id: string;
   src: string;
   poster: string;
   handle: string;
   views: string;
   platform: "tiktok" | "yt" | "ig";
-  // Set once the clip is live so the card links to the real post.
-  href?: string;
+  href: string;
 };
 
-// Placeholder clips so the wall ships populated. Replace src/poster with real
-// campaign footage and set href to the live post before publishing view counts.
-export const clipWall: ClipWallItem[] = [
-  { src: "/media/clips/clip1.mp4", poster: "/media/posters/clip1.jpg", handle: "Podcast Clip", views: "2.4M", platform: "tiktok" },
-  { src: "/media/clips/clip2.mp4", poster: "/media/posters/clip2.jpg", handle: "Artist Drop", views: "5.1M", platform: "yt" },
-  { src: "/media/clips/clip3.mp4", poster: "/media/posters/clip3.jpg", handle: "Product Launch", views: "880K", platform: "ig" },
-  { src: "/media/clips/clip4.mp4", poster: "/media/posters/clip4.jpg", handle: "Creator POV", views: "3.2M", platform: "tiktok" },
-  { src: "/media/clips/clip5.mp4", poster: "/media/posters/clip5.jpg", handle: "Founder Story", views: "1.1M", platform: "yt" },
-  { src: "/media/clips/clip6.mp4", poster: "/media/posters/clip6.jpg", handle: "Sports Edit", views: "6.7M", platform: "ig" },
-];
+// Generated from data/clips.links.txt by `npm run clips` — do not hand-edit the
+// JSON. Every entry is a real post: the view count is read off the live page and
+// the card links back to it. An empty manifest hides the section rather than
+// showing invented numbers.
+export const clipWall = clipsGenerated as ClipWallItem[];
 
 export const processProof = [
   {

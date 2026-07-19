@@ -231,7 +231,7 @@ export default function Home() {
               Build my distribution army <span aria-hidden="true">↗</span>
             </TrackedLink>
             <span className="clip-note">
-              Want your campaign here? These are placeholder clips&mdash;send us yours.
+              Every card links to the live post. View counts are read from the platform.
             </span>
           </div>
         </section>
