@@ -71,6 +71,12 @@ export function TrackedLink({
 
 export function RevealManager() {
   useEffect(() => {
+    // We mounted, so the layout's reveal failsafe is no longer needed.
+    clearTimeout(
+      (window as Window & { __revealFailsafe?: ReturnType<typeof setTimeout> })
+        .__revealFailsafe,
+    );
+
     const elements = document.querySelectorAll<HTMLElement>(".reveal");
     if (!("IntersectionObserver" in window)) {
       elements.forEach((element) => element.classList.add("in"));

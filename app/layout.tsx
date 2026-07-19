@@ -80,7 +80,11 @@ export default function RootLayout({
       >
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.add("js")`,
+            // Hiding .reveal content is safe only while something is guaranteed to
+            // un-hide it. RevealManager clears this timer once its observer is live;
+            // if it never mounts, everything still becomes visible.
+            __html: `document.documentElement.classList.add("js");
+window.__revealFailsafe=setTimeout(function(){var e=document.querySelectorAll(".reveal");for(var i=0;i<e.length;i++)e[i].classList.add("in")},2500)`,
           }}
         />
         <Analytics />
