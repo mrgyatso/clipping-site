@@ -4,7 +4,7 @@ import { navigation, siteConfig } from "@/data/site";
 export function Logo() {
   return (
     <Link className="logo" href="/" aria-label={`${siteConfig.name} home`}>
-      <span className="logo-mark">C</span>
+      <span className="logo-mark">S</span>
       <span>{siteConfig.name}</span>
     </Link>
   );
