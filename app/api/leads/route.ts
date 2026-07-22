@@ -167,7 +167,7 @@ export async function POST(request: Request) {
   const to = process.env.LEADS_TO_EMAIL;
   const from = process.env.LEADS_FROM_EMAIL;
   if (!apiKey || !to || !from) {
-    console.error("ClipWave lead delivery environment is incomplete.");
+    console.error("Second Wind lead delivery environment is incomplete.");
     return NextResponse.json(
       {
         status: "delivery_failure",
@@ -190,7 +190,7 @@ export async function POST(request: Request) {
         from,
         to: [to],
         reply_to: email,
-        subject: `[${classification === "qualified" ? "Qualified" : "Manual review"}] ${company} — ClipWave campaign fit`,
+        subject: `[${classification === "qualified" ? "Qualified" : "Manual review"}] ${company} — Second Wind campaign fit`,
         text: [
           `Classification: ${classification}`,
           `Name: ${name}`,

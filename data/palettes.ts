@@ -50,4 +50,4 @@ export const palettes: PaletteOption[] = [
   },
 ];
 
-export const PALETTE_STORAGE_KEY = "clipwave-palette";
+export const PALETTE_STORAGE_KEY = "secondwind-palette";

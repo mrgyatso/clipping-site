@@ -4,7 +4,7 @@ import { Footer, Header, PageIntro } from "@/components/site-shell";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact ClipWave about managed clipping campaigns.",
+  description: "Contact Second Wind about managed clipping campaigns.",
   alternates: { canonical: "/contact" },
 };
 

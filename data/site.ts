@@ -56,7 +56,7 @@ export type CampaignCaseStudy = {
 };
 
 export const siteConfig = {
-  name: "ClipWave",
+  name: "Second Wind",
   description:
     "Performance-based short-form distribution. We guarantee a verified-view target for your budget at $4 per 1,000 views—and you only pay for the views we deliver.",
   bookingDuration: "30 minutes",
@@ -136,6 +136,6 @@ export const faqs = [
   {
     question: "Can I apply as a clipper?",
     answer:
-      "Yes. Visit the separate For Clippers page to join the ClipWave community through Whop or Discord.",
+      "Yes. Visit the separate For Clippers page to join the Second Wind community through Whop or Discord.",
   },
 ] as const;

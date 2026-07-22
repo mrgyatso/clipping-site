@@ -6,7 +6,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = {
   title: "For Clippers",
   description:
-    "Join the ClipWave clipper community on Whop and Discord for campaign opportunities, briefs, and updates.",
+    "Join the Second Wind clipper community on Whop and Discord for campaign opportunities, briefs, and updates.",
   alternates: { canonical: "/for-clippers" },
 };
 
@@ -41,7 +41,7 @@ export default function ForClippersPage() {
           <span className="kicker light">For clippers</span>
           <h1>Turn great moments into reach.</h1>
           <p>
-            Join the ClipWave clipper community to find campaign opportunities,
+            Join the Second Wind clipper community to find campaign opportunities,
             follow active briefs, connect with other creators, and stay close to
             new work as it opens.
           </p>
@@ -50,7 +50,7 @@ export default function ForClippersPage() {
             <article>
               <span>01</span>
               <h2>Content supplied</h2>
-              <p>Work from campaign-ready long-form footage supplied through ClipWave.</p>
+              <p>Work from campaign-ready long-form footage supplied through Second Wind.</p>
             </article>
             <article>
               <span>02</span>

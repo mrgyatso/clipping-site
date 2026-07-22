@@ -6,7 +6,7 @@ import { caseStudies } from "@/data/site";
 export const metadata: Metadata = {
   title: "Case Studies",
   description:
-    "Verified, anonymized ClipWave campaign evidence and measurement methodology.",
+    "Verified, anonymized Second Wind campaign evidence and measurement methodology.",
   alternates: { canonical: "/case-studies" },
 };
 
@@ -47,7 +47,7 @@ export default function CaseStudiesPage() {
               <p>
                 We will not publish placeholder clients or invented outcomes.
                 Until anonymized source records are available, evaluate
-                ClipWave on the pilot’s defined deliverables, review process,
+                Second Wind on the pilot’s defined deliverables, review process,
                 and reporting standard.
               </p>
               <Link className="button primary" href="/#qualification">

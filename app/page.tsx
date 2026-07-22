@@ -27,7 +27,7 @@ const valueFlow = [
     body: "You supply campaign-ready footage and set the budget.",
   },
   {
-    label: "ClipWave",
+    label: "Second Wind",
     title: "Brief + route",
     body: "We direct the creative, coordinate clippers, and verify delivery.",
   },
@@ -77,7 +77,7 @@ export default function Home() {
             <span className="kicker light">For YouTubers and live sellers</span>
             <h1>Your best moments shouldn’t <em>die after 48 hours.</em></h1>
             <p>
-              Build a distribution army around every stream. ClipWave mobilizes
+              Build a distribution army around every stream. Second Wind mobilizes
               clippers to create and publish as many posts as your campaign
               needs—and keeps the campaign moving until it hits the verified-view
               target your budget buys.
@@ -111,7 +111,7 @@ export default function Home() {
             <span className="kicker">The offer</span>
             <h2>Buy distribution—not another folder of clips.</h2>
             <p>
-              Freelancers stop at production. ClipWave owns the operating loop:
+              Freelancers stop at production. Second Wind owns the operating loop:
               creator briefing, publishing, review, public view tracking, and a
               run-to-target commitment backed by performance-based billing.
             </p>
@@ -280,7 +280,7 @@ export default function Home() {
         <section className="objections section">
           <div className="section-heading reveal">
             <span className="kicker">A realistic fit</span>
-            <h2>Know exactly what ClipWave is—and isn’t.</h2>
+            <h2>Know exactly what Second Wind is—and isn’t.</h2>
           </div>
           <div className="objection-grid reveal">
             <article>
@@ -297,7 +297,7 @@ export default function Home() {
               <h3>Another folder of clips to post yourself</h3>
               <p>
                 Editors hand you files and leave distribution on your plate.
-                ClipWave coordinates clippers who create and publish from their
+                Second Wind coordinates clippers who create and publish from their
                 own accounts, so reach is built into the campaign.
               </p>
             </article>

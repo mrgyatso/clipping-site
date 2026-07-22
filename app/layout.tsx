@@ -42,21 +42,21 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Guaranteed Verified Views | ClipWave",
-    template: "%s | ClipWave",
+    default: "Guaranteed Verified Views | Second Wind",
+    template: "%s | Second Wind",
   },
   description: siteConfig.description,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
-    title: "Guaranteed Verified Views | ClipWave",
+    title: "Guaranteed Verified Views | Second Wind",
     description: siteConfig.description,
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Guaranteed Verified Views | ClipWave",
+    title: "Guaranteed Verified Views | Second Wind",
     description: siteConfig.description,
   },
 };
@@ -88,7 +88,7 @@ export default function RootLayout({
             // means a chosen theme paints on the first frame instead of flashing
             // the default first.
             __html: `document.documentElement.classList.add("js");
-try{var p=localStorage.getItem("clipwave-palette");if(p)document.documentElement.dataset.palette=p}catch(e){}
+try{var p=localStorage.getItem("secondwind-palette");if(p)document.documentElement.dataset.palette=p}catch(e){}
 window.__revealFailsafe=setTimeout(function(){var e=document.querySelectorAll(".reveal");for(var i=0;i<e.length;i++)e[i].classList.add("in")},900)`,
           }}
         />

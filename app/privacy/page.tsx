@@ -3,7 +3,7 @@ import { Footer, Header, PageIntro } from "@/components/site-shell";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description: "ClipWave privacy notice.",
+  description: "Second Wind privacy notice.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
         <PageIntro
           eyebrow="Legal"
           title="Privacy notice"
-          description="How ClipWave handles information submitted through this website."
+          description="How Second Wind handles information submitted through this website."
         />
         <article className="content-page">
           <p>Last updated: July 16, 2026.</p>

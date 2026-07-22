@@ -3,7 +3,7 @@ import { Footer, Header, PageIntro } from "@/components/site-shell";
 
 export const metadata: Metadata = {
   title: "Terms",
-  description: "ClipWave website terms.",
+  description: "Second Wind website terms.",
   alternates: { canonical: "/terms" },
 };
 
@@ -21,7 +21,7 @@ export default function TermsPage() {
           <p>Last updated: July 17, 2026.</p>
           <h2>Website use</h2>
           <p>
-            You may use this website to evaluate ClipWave and submit legitimate
+            You may use this website to evaluate Second Wind and submit legitimate
             campaign or creator inquiries. Do not interfere with the site,
             submit unlawful material, or misuse its forms.
           </p>
@@ -58,7 +58,7 @@ export default function TermsPage() {
           </p>
           <h2>Early termination</h2>
           <p>
-            A client may cancel in writing before completion. ClipWave may end a
+            A client may cancel in writing before completion. Second Wind may end a
             campaign when rights, source availability, client cooperation,
             platform restrictions, fraud, safety, or legal or compliance issues
             make continued delivery impracticable. The parties may also end a
@@ -73,7 +73,7 @@ export default function TermsPage() {
           </p>
           <h2>Post volume and outcomes</h2>
           <p>
-            ClipWave may publish as many approved posts as the campaign needs
+            Second Wind may publish as many approved posts as the campaign needs
             within the source-content limits and campaign brief. Total campaign
             charges do not exceed the agreed campaign budget, and views beyond
             the agreed target do not create an additional charge without a
