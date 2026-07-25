@@ -6,3 +6,8 @@ npm-debug.log*
 
 # clip pipeline scratch space
 .clip-cache
+
+# local deploy + secrets — the example file stays tracked
+.vercel
+.env*
+!.env.example
