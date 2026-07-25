@@ -60,7 +60,7 @@ export const siteConfig = {
   description:
     "Performance-based short-form distribution. We guarantee a verified-view target for your budget at $4 per 1,000 views—and you only pay for the views we deliver.",
   bookingDuration: "30 minutes",
-  calLink: process.env.NEXT_PUBLIC_CAL_LINK ?? "zack-woods-si9bra/30min",
+  calLink: process.env.NEXT_PUBLIC_CAL_LINK ?? "",
   whopUrl: process.env.NEXT_PUBLIC_WHOP_URL ?? "#",
   discordUrl: process.env.NEXT_PUBLIC_DISCORD_URL ?? "#",
 } as const;
